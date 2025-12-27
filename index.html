@@ -6,6 +6,9 @@
   <title>Sam Multiple Services — Digital Payments & Exchange Solutions</title>
   <meta name="description" content="Sam Multiple Services provides secure digital payments, currency exchange, and money transfer support. USD, RD$, and HTG supported. WhatsApp-first service." />
 
+  <!-- Performance: preload hero banner (small, fast) -->
+  <link rel="preload" as="image" href="hero-banner.webp" imagesrcset="hero-banner.webp" />
+
   <style>
     :root{
       --bg:#061025;
@@ -100,10 +103,13 @@
       padding:22px;
       border-radius:var(--radius);
       border:1px solid var(--line);
+      /* Promo banner behind hero + overlay gradient for readability */
       background:
+        linear-gradient(180deg, rgba(6,16,37,.50), rgba(6,16,37,.80)),
+        url("hero-banner.webp") center/cover no-repeat,
         radial-gradient(900px 360px at 20% 20%, rgba(111,183,255,.16), transparent 65%),
         radial-gradient(700px 360px at 80% 0%, rgba(215,179,92,.16), transparent 62%),
-        rgba(10,28,61,.40);
+        rgba(10,28,61,.35);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -195,6 +201,27 @@
       font-size:.92rem;
     }
 
+    /* WhatsApp QR block (clean + scannable) */
+    .qrwrap{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid var(--line);
+    }
+    .qrimg{
+      width:132px;
+      height:132px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      object-fit:cover;
+      image-rendering:auto;
+    }
+    .qrtext b{display:block;margin-bottom:4px}
+    .qrtext{color:var(--muted);font-size:.92rem}
+
     @media (max-width: 920px){
       .hero-grid{grid-template-columns:1fr}
       .kpis{grid-template-columns:1fr}
@@ -204,6 +231,7 @@
       .faq{grid-template-columns:1fr}
       .nav{display:none}
       .topbar{top:10px}
+      .qrwrap{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
@@ -275,7 +303,18 @@
             Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
           </p>
 
-          <div class="kpi" style="margin-top:10px">
+          <!-- WhatsApp QR (clean + scannable) -->
+          <div class="qrwrap" id="qr_block">
+            <a href="https://wa.me/18293055968" target="_blank" rel="noopener">
+              <img class="qrimg" src="whatsapp-qr.png" alt="Scan to chat on WhatsApp" loading="lazy" />
+            </a>
+            <div class="qrtext">
+              <b id="t_qr_title">Scan to chat</b>
+              <span id="t_qr_body">WhatsApp: +1 (829) 305-5968<br/>Fastest support channel.</span>
+            </div>
+          </div>
+
+          <div class="kpi" style="margin-top:12px">
             <div class="label" id="t_whatsapp_label">WhatsApp-first service</div>
             <div class="value" id="t_whatsapp_value">Fast replies & clear steps</div>
             <div class="muted small" id="t_whatsapp_note">We confirm details before any transfer.</div>
@@ -491,6 +530,8 @@
 
         t_quick_title: "Quick Contact",
         t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_qr_title: "Scan to chat",
+        t_qr_body: "WhatsApp: +1 (829) 305-5968<br/>Fastest support channel.",
         t_whatsapp_label: "WhatsApp-first service",
         t_whatsapp_value: "Fast replies & clear steps",
         t_whatsapp_note: "We confirm details before any transfer.",
@@ -508,22 +549,13 @@
 
         t_usdt_title: "USDT Exchange Support",
         t_usdt_list: "<li>Buy USDT (client pays via approved methods; we deliver to Binance or wallet)</li><li>Sell USDT (client transfers USDT; we pay out via bank / NatCash / MonCash)</li><li>Trust Wallet supported: <b>USDT TRC20</b></li>",
-        btn_buy: "Buy USDT",
-        btn_sell: "Sell USDT",
 
         t_transfer_title: "Money Transfer & Payment Facilitation",
         t_transfer_list: "<li>NatCash / MonCash services (non-USDT transfers supported)</li><li>Local bank transfers (Banco Popular)</li><li>International payment coordination (case-by-case)</li>",
-        btn_transfer: "Money Transfer",
-        btn_support: "Contact Support",
 
         t_methods_title: "Payment Methods",
         t_methods_sub: "Availability may vary by region and amount.",
-        t_badge_paypal: "PayPal (USD)",
-        t_badge_zelle: "Zelle",
-        t_badge_bank: "Banco Popular (RD$ / USD)",
-        t_badge_moncash: "MonCash (HTG)",
-        t_badge_natcash: "NatCash (HTG)",
-        t_badge_binance: "Binance (USDT)",
+
         t_methods_note: "We confirm method, amount, and currency before any transfer. Keep screenshots/receipts for verification.",
 
         t_how_title: "How it works",
@@ -539,8 +571,6 @@
         t_rates_title: "Daily Rates",
         t_rates_sub: "Get today’s buy/sell rates instantly.",
         t_rates_body: "Rates depend on <b>currency</b> (USD/RD$/HTG), <b>amount</b>, and <b>payment method</b>. For the fastest response, send <b>0</b> on WhatsApp.",
-        btn_rates_send0: "Request Today’s Rates (send “0”)",
-        btn_rates_template: "Send Details Template",
 
         t_faq_title: "FAQ",
         t_faq_sub: "Quick answers to common questions.",
@@ -557,7 +587,6 @@
         t_contact_sub: "We respond as soon as possible.",
         t_contact_whatsapp_title: "WhatsApp",
         t_contact_whatsapp_body: "Fastest support channel.",
-        btn_chat_now: "Chat now",
         t_contact_phone: "Phone: +1 (829) 305-5968",
         t_contact_email_title: "Email",
         t_contact_email_body: "For business inquiries and documentation.",
@@ -584,7 +613,7 @@
         btn_rates0: "Envoyer « 0 » pour les taux",
 
         t_h1: "Paiements digitaux, transferts d’argent et assistance de change — pour la RD, Haïti et l’international.",
-        t_sub: "Nous acceptons <b>USD ($)</b>, <b>RD$ (DOP)</b> et <b>HTG</b>. Service prioritairement via WhatsApp, étapes claires, coordination rapide.",
+        t_sub: "Nous acceptons <b>USD ($)</b>, <b>RD$ (DOP)</b> et <b>HTG</b>. Service via WhatsApp, étapes claires, coordination rapide.",
         t_pill_1: "USD • RD$ • HTG",
         t_pill_2: "USDT (TRC20 supporté)",
         t_pill_3: "PayPal • Zelle • Banque • NatCash • MonCash",
@@ -592,6 +621,8 @@
 
         t_quick_title: "Contact rapide",
         t_quick_body: 'WhatsApp : <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email : <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_qr_title: "Scannez pour écrire",
+        t_qr_body: "WhatsApp : +1 (829) 305-5968<br/>Canal le plus rapide.",
         t_whatsapp_label: "Service WhatsApp",
         t_whatsapp_value: "Réponses rapides & étapes claires",
         t_whatsapp_note: "Nous confirmons les détails avant tout transfert.",
@@ -609,22 +640,12 @@
 
         t_usdt_title: "Assistance échange USDT",
         t_usdt_list: "<li>Achat USDT (paiement via moyens acceptés; livraison sur Binance ou wallet)</li><li>Vente USDT (transfert USDT; paiement via banque / NatCash / MonCash)</li><li>Trust Wallet : <b>USDT TRC20</b></li>",
-        btn_buy: "Acheter USDT",
-        btn_sell: "Vendre USDT",
 
         t_transfer_title: "Transfert d’argent & facilitation",
         t_transfer_list: "<li>Services NatCash / MonCash (transferts sans USDT possibles)</li><li>Transferts bancaires locaux (Banco Popular)</li><li>Coordination internationale (selon le cas)</li>",
-        btn_transfer: "Transfert d’argent",
-        btn_support: "Contacter",
 
         t_methods_title: "Moyens de paiement",
         t_methods_sub: "Disponibilité selon région et montant.",
-        t_badge_paypal: "PayPal (USD)",
-        t_badge_zelle: "Zelle",
-        t_badge_bank: "Banco Popular (RD$ / USD)",
-        t_badge_moncash: "MonCash (HTG)",
-        t_badge_natcash: "NatCash (HTG)",
-        t_badge_binance: "Binance (USDT)",
         t_methods_note: "Nous confirmons moyen, montant et devise avant transfert. Gardez les reçus/captures.",
 
         t_how_title: "Comment ça marche",
@@ -640,8 +661,6 @@
         t_rates_title: "Taux du jour",
         t_rates_sub: "Recevez les taux achat/vente rapidement.",
         t_rates_body: "Les taux dépendent de la <b>devise</b> (USD/RD$/HTG), du <b>montant</b> et du <b>moyen</b>. Envoyez <b>0</b> pour aller plus vite.",
-        btn_rates_send0: "Demander les taux (envoyer « 0 »)",
-        btn_rates_template: "Modèle de message",
 
         t_faq_title: "FAQ",
         t_faq_sub: "Réponses rapides aux questions fréquentes.",
@@ -658,7 +677,6 @@
         t_contact_sub: "Nous répondons dès que possible.",
         t_contact_whatsapp_title: "WhatsApp",
         t_contact_whatsapp_body: "Canal le plus rapide.",
-        btn_chat_now: "Écrire maintenant",
         t_contact_phone: "Téléphone : +1 (829) 305-5968",
         t_contact_email_title: "Email",
         t_contact_email_body: "Pour demandes business et documentation.",
@@ -693,6 +711,8 @@
 
         t_quick_title: "Contacto rápido",
         t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_qr_title: "Escanea para chatear",
+        t_qr_body: "WhatsApp: +1 (829) 305-5968<br/>Canal más rápido.",
         t_whatsapp_label: "Servicio por WhatsApp",
         t_whatsapp_value: "Respuestas rápidas y pasos claros",
         t_whatsapp_note: "Confirmamos los detalles antes de cualquier envío.",
@@ -710,22 +730,12 @@
 
         t_usdt_title: "Soporte de intercambio USDT",
         t_usdt_list: "<li>Comprar USDT (pagas por métodos aceptados; entregamos a Binance o wallet)</li><li>Vender USDT (envías USDT; pagamos por banco / NatCash / MonCash)</li><li>Trust Wallet: <b>USDT TRC20</b></li>",
-        btn_buy: "Comprar USDT",
-        btn_sell: "Vender USDT",
 
         t_transfer_title: "Transferencias y facilitación",
         t_transfer_list: "<li>NatCash / MonCash (transferencias sin USDT disponibles)</li><li>Transferencias bancarias locales (Banco Popular)</li><li>Coordinación internacional (según el caso)</li>",
-        btn_transfer: "Transferencia",
-        btn_support: "Contactar",
 
         t_methods_title: "Métodos de pago",
         t_methods_sub: "Disponibilidad según región y monto.",
-        t_badge_paypal: "PayPal (USD)",
-        t_badge_zelle: "Zelle",
-        t_badge_bank: "Banco Popular (RD$ / USD)",
-        t_badge_moncash: "MonCash (HTG)",
-        t_badge_natcash: "NatCash (HTG)",
-        t_badge_binance: "Binance (USDT)",
         t_methods_note: "Confirmamos método, monto y moneda antes de enviar. Guarda comprobantes/capturas.",
 
         t_how_title: "Cómo funciona",
@@ -741,8 +751,6 @@
         t_rates_title: "Tasas diarias",
         t_rates_sub: "Recibe tasas de compra/venta al instante.",
         t_rates_body: "Las tasas dependen de <b>moneda</b> (USD/RD$/HTG), <b>monto</b> y <b>método</b>. Envía <b>0</b> para respuesta rápida.",
-        btn_rates_send0: "Pedir tasas (enviar “0”)",
-        btn_rates_template: "Plantilla de mensaje",
 
         t_faq_title: "FAQ",
         t_faq_sub: "Respuestas rápidas a preguntas comunes.",
@@ -759,7 +767,6 @@
         t_contact_sub: "Respondemos lo antes posible.",
         t_contact_whatsapp_title: "WhatsApp",
         t_contact_whatsapp_body: "Canal más rápido.",
-        btn_chat_now: "Chatear ahora",
         t_contact_phone: "Teléfono: +1 (829) 305-5968",
         t_contact_email_title: "Email",
         t_contact_email_body: "Para consultas y documentación.",
@@ -794,6 +801,8 @@
 
         t_quick_title: "Kontak rapid",
         t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Imèl: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_qr_title: "Eskane pou ekri",
+        t_qr_body: "WhatsApp: +1 (829) 305-5968<br/>Pi rapid chanèl la.",
         t_whatsapp_label: "Sèvis sou WhatsApp",
         t_whatsapp_value: "Repons rapid & etap klè",
         t_whatsapp_note: "Nou konfime detay yo anvan nenpòt transfè.",
@@ -811,22 +820,12 @@
 
         t_usdt_title: "Sipò USDT",
         t_usdt_list: "<li>Achte USDT (ou peye ak metòd yo; nou voye sou Binance oswa wallet)</li><li>Vann USDT (ou voye USDT; nou peye via bank / NatCash / MonCash)</li><li>Trust Wallet: <b>USDT TRC20</b></li>",
-        btn_buy: "Achte USDT",
-        btn_sell: "Vann USDT",
 
         t_transfer_title: "Transfè lajan & fasilitasyon",
         t_transfer_list: "<li>NatCash / MonCash (transfè san USDT posib)</li><li>Transfè bank lokal (Banco Popular)</li><li>Kòdinasyon entènasyonal (selon ka a)</li>",
-        btn_transfer: "Transfè lajan",
-        btn_support: "Kontakte",
 
         t_methods_title: "Mwayen peman",
         t_methods_sub: "Disponibilite depann de zòn ak montan.",
-        t_badge_paypal: "PayPal (USD)",
-        t_badge_zelle: "Zelle",
-        t_badge_bank: "Banco Popular (RD$ / USD)",
-        t_badge_moncash: "MonCash (HTG)",
-        t_badge_natcash: "NatCash (HTG)",
-        t_badge_binance: "Binance (USDT)",
         t_methods_note: "Nou konfime metòd, montan, ak lajan anvan ou voye. Kenbe resi/capture.",
 
         t_how_title: "Kijan li mache",
@@ -842,8 +841,6 @@
         t_rates_title: "To jounen an",
         t_rates_sub: "Jwenn to achte/vann rapid.",
         t_rates_body: "To yo depann de <b>lajan</b> (USD/RD$/HTG), <b>montan</b>, ak <b>metòd</b>. Voye <b>0</b> pou pi vit.",
-        btn_rates_send0: "Mande to yo (voye “0”)",
-        btn_rates_template: "Modèl mesaj",
 
         t_faq_title: "FAQ",
         t_faq_sub: "Repons rapid pou kestyon yo.",
@@ -860,7 +857,6 @@
         t_contact_sub: "Nou reponn pi vit posib.",
         t_contact_whatsapp_title: "WhatsApp",
         t_contact_whatsapp_body: "Pi rapid chanèl la.",
-        btn_chat_now: "Ekri kounye a",
         t_contact_phone: "Telefòn: +1 (829) 305-5968",
         t_contact_email_title: "Imèl",
         t_contact_email_body: "Pou kestyon biznis ak dokiman.",
@@ -872,7 +868,7 @@
 
     const htmlFields = new Set([
       "t_sub","t_tip","t_quick_body","t_usdt_list","t_transfer_list","t_rates_body","t_how_notice",
-      "t_faq1_a","t_faq2_a","t_footer"
+      "t_faq1_a","t_faq2_a","t_footer","t_qr_body"
     ]);
 
     function applyLang(lang){
@@ -883,7 +879,7 @@
         if (htmlFields.has(id)) el.innerHTML = dict[id];
         else el.textContent = dict[id];
       }
-      document.documentElement.lang = lang === "ht" ? "ht" : lang;
+      document.documentElement.lang = (lang === "ht") ? "ht" : lang;
     }
 
     const sel = document.getElementById("langSel");
