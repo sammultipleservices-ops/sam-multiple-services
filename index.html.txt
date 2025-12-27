@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sam Multiple Services — Digital Payments & Exchange Solutions</title>
+  <meta name="description" content="Sam Multiple Services provides secure digital payment facilitation and USDT exchange solutions supporting RD$, USD ($), and HTG. PayPal, Zelle, Banco Popular, MonCash, NatCash." />
+  <style>
+    :root{
+      --bg:#071226;
+      --card:#0b1b38;
+      --muted:#b7c4dd;
+      --text:#eaf0ff;
+      --accent:#d7b35c;
+      --accent2:#6fb7ff;
+      --line:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(111,183,255,.18), transparent 55%),
+                  radial-gradient(900px 600px at 80% 10%, rgba(215,179,92,.20), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:14px 16px;border:1px solid var(--line);border-radius:18px;
+      background:rgba(11,27,56,.55);backdrop-filter: blur(8px);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px
+    }
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(215,179,92,.9), rgba(111,183,255,.9));
+      display:grid;place-items:center;color:#071226;font-weight:900;
+      box-shadow: 0 10px 35px rgba(0,0,0,.28);
+    }
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{
+      text-decoration:none;color:var(--muted);
+      padding:8px 10px;border-radius:12px;
+    }
+    .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .cta{
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end
+    }
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 14px;border-radius:14px;text-decoration:none;
+      display:inline-flex;align-items:center;gap:10px;
+      font-weight:700;
+    }
+    .btn:hover{background:rgba(255,255,255,.10)}
+    .btn.primary{
+      border-color: rgba(215,179,92,.45);
+      background: linear-gradient(135deg, rgba(215,179,92,.22), rgba(111,183,255,.12));
+    }
+
+    header.hero{
+      margin-top:22px;
+      padding:28px 18px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:rgba(11,27,56,.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+    h1{margin:0 0 10px;font-size:clamp(28px,3.2vw,44px);line-height:1.15}
+    .sub{color:var(--muted);margin:0 0 16px;font-size:1.05rem}
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      padding:8px 10px;border-radius:999px;color:var(--muted);
+      font-weight:700;font-size:.92rem;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(7,18,38,.35);
+      padding:16px;border-radius:20px;
+    }
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .grid{
+      display:grid;grid-template-columns:repeat(3, 1fr);
+      gap:14px;margin-top:14px
+    }
+    .kpi{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      padding:14px;border-radius:18px;
+    }
+    .kpi .label{color:var(--muted);font-weight:700;font-size:.9rem}
+    .kpi .value{font-weight:900;font-size:1.15rem;margin-top:6px}
+    section{margin-top:20px}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:24px 0 10px}
+    .section-title h2{margin:0;font-size:1.45rem}
+    .section-title p{margin:0;color:var(--muted)}
+    .list{margin:0;padding-left:18px;color:var(--muted)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      padding:8px 10px;border-radius:14px;
+      color:var(--muted);font-weight:800;font-size:.92rem;
+    }
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .footer{
+      margin-top:26px;
+      padding:18px;
+      border-radius:18px;border:1px solid var(--line);
+      background:rgba(11,27,56,.35);
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .small{font-size:.92rem}
+    .qr{
+      width:140px;height:140px;border-radius:18px;
+      border:1px dashed rgba(255,255,255,.25);
+      display:grid;place-items:center;color:rgba(255,255,255,.65);
+      background:rgba(255,255,255,.04);
+      margin-top:12px;
+    }
+    .notice{
+      border:1px solid rgba(215,179,92,.35);
+      background:rgba(215,179,92,.10);
+      padding:12px;border-radius:16px;
+      color:rgba(255,255,255,.86);
+    }
+
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      .cta{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">SMS</div>
+        <div>
+          <div>Sam Multiple Services</div>
+          <div class="muted small">Digital Payments & Exchange Solutions</div>
+        </div>
+      </div>
+
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#methods">Payment Methods</a>
+        <a href="#rates">Rates</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/18493902963" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn" href="mailto:sammultipleservices@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Secure digital payments and USDT exchange — built for RD, Haiti, and international clients.</h1>
+          <p class="sub">
+            We support <b>RD$ (DOP)</b>, <b>USD ($)</b>, and <b>HTG</b>. Fast communication, clear steps, and professional service.
+          </p>
+
+          <div class="pillrow">
+            <span class="pill">RD$ • USD ($) • HTG</span>
+            <span class="pill">USDT (TRC20 supported)</span>
+            <span class="pill">PayPal • Zelle • Bank • MonCash • NatCash</span>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="https://wa.me/18493902963" target="_blank" rel="noopener">Start a WhatsApp chat</a>
+            <a class="btn" href="#services">View services</a>
+          </div>
+
+          <div style="margin-top:14px" class="notice small">
+            Tip: For faster service, message us on WhatsApp with your <b>amount</b>, <b>currency</b> (RD$ / USD / HTG), and preferred <b>payment method</b>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Quick Contact</h3>
+          <p class="muted" style="margin:0 0 10px">
+            WhatsApp: <a href="https://wa.me/18493902963" target="_blank" rel="noopener">+1 (849) 390-2963</a><br/>
+            Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
+          </p>
+
+          <div class="kpi">
+            <div class="label">Primary PayPal (payments)</div>
+            <div class="value">sammultipleservices@gmail.com</div>
+            <div class="muted small">Shared after confirmation inside chat.</div>
+          </div>
+
+          <div class="qr" title="Replace with your real WhatsApp QR">
+            Your WhatsApp QR
+          </div>
+          <p class="muted small" style="margin:10px 0 0">
+            Replace the QR placeholder with your real WhatsApp Business QR image when you’re ready.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="kpi">
+          <div class="label">Coverage</div>
+          <div class="value">Dominican Republic • Haiti • International</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Currencies</div>
+          <div class="value">RD$ (DOP) • USD ($) • HTG</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Support</div>
+          <div class="value">WhatsApp-first service</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Clear options, fast processing.</p>
+      </div>
+
+      <div class="two">
+        <div class="card">
+          <h3>USDT Exchange</h3>
+          <ul class="list">
+            <li>Buy USDT (client pays via approved methods; we deliver to Binance or wallet)</li>
+            <li>Sell USDT (client transfers USDT; we pay out via bank / MonCash / NatCash)</li>
+            <li>Trust Wallet supported: <b>USDT TRC20</b></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Payment Facilitation</h3>
+          <ul class="list">
+            <li>MonCash / NatCash services (non-USDT transfers supported)</li>
+            <li>Local bank transfers (Banco Popular)</li>
+            <li>International payment coordination (case-by-case)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="methods">
+      <div class="section-title">
+        <h2>Payment Methods</h2>
+        <p>Availability may vary by region and amount.</p>
+      </div>
+
+      <div class="card">
+        <div class="badges">
+          <span class="badge">PayPal (USD)</span>
+          <span class="badge">Zelle</span>
+          <span class="badge">Banco Popular (RD$ / USD)</span>
+          <span class="badge">MonCash (HTG)</span>
+          <span class="badge">NatCash (HTG)</span>
+          <span class="badge">Binance (USDT)</span>
+        </div>
+        <p class="muted small" style="margin-top:12px">
+          We show payment brands as accepted methods. We do not claim official affiliation with any payment provider.
+        </p>
+      </div>
+    </section>
+
+    <section id="rates">
+      <div class="section-title">
+        <h2>Daily Rates</h2>
+        <p>Get today’s buy/sell rates instantly.</p>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin-top:0">
+          Rates depend on <b>currency</b> (RD$ / USD / HTG), <b>amount</b>, and <b>payment method</b>.
+          For the fastest response, message us “<b>0</b>” on WhatsApp to request today’s rates.
+        </p>
+        <a class="btn primary" href="https://wa.me/18493902963?text=0" target="_blank" rel="noopener">Request today’s rates (send “0”)</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>We respond as soon as possible.</p>
+      </div>
+
+      <div class="two">
+        <div class="card">
+          <h3>WhatsApp</h3>
+          <p class="muted" style="margin-top:0">
+            The fastest way to reach us is WhatsApp.
+          </p>
+          <a class="btn primary" href="https://wa.me/18493902963" target="_blank" rel="noopener">Chat now</a>
+          <p class="muted small" style="margin-bottom:0;margin-top:10px">
+            Phone: +1 (849) 390-2963
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Email</h3>
+          <p class="muted" style="margin-top:0">
+            For documentation or business inquiries:
+          </p>
+          <a class="btn" href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
+          <p class="muted small" style="margin-bottom:0;margin-top:10px">
+            Response time may vary during peak hours.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <b>Notice:</b> Services are provided based on availability and regional requirements. Always confirm the amount, currency (RD$ / USD / HTG), and method before sending funds.
+      </div>
+    </section>
+  </div>
+</body>
+</html>
