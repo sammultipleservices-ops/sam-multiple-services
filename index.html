@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sam Multiple Services — Digital Payments & Exchange Solutions</title>
   <meta name="description" content="Sam Multiple Services provides secure digital payment facilitation and exchange solutions supporting RD$, USD ($), and HTG. PayPal, Zelle, Banco Popular, MonCash, NatCash." />
+
   <style>
     :root{
       --bg:#071226;
@@ -14,14 +15,16 @@
       --accent:#d7b35c;
       --accent2:#6fb7ff;
       --line:rgba(255,255,255,.10);
+      --good: rgba(111,183,255,.18);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(111,183,255,.18), transparent 55%),
-                  radial-gradient(900px 600px at 80% 10%, rgba(215,179,92,.20), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(111,183,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 10%, rgba(215,179,92,.20), transparent 60%),
+        var(--bg);
       color:var(--text);
       line-height:1.45;
     }
@@ -32,9 +35,7 @@
       padding:14px 16px;border:1px solid var(--line);border-radius:18px;
       background:rgba(11,27,56,.55);backdrop-filter: blur(8px);
     }
-    .brand{
-      display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px
-    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
     .logo{
       width:40px;height:40px;border-radius:12px;
       background: linear-gradient(135deg, rgba(215,179,92,.9), rgba(111,183,255,.9));
@@ -47,22 +48,26 @@
       padding:8px 10px;border-radius:12px;
     }
     .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
-    .cta{
-      display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end
-    }
+    .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
     .btn{
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
       color:var(--text);
       padding:10px 14px;border-radius:14px;text-decoration:none;
       display:inline-flex;align-items:center;gap:10px;
-      font-weight:700;
+      font-weight:800;
+      cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.10)}
     .btn.primary{
       border-color: rgba(215,179,92,.45);
       background: linear-gradient(135deg, rgba(215,179,92,.22), rgba(111,183,255,.12));
     }
+    .btn.small{padding:8px 12px;border-radius:12px;font-weight:800;font-size:.92rem}
+    .btn.wide{justify-content:center;width:100%}
+    .btnrow{display:grid;grid-template-columns:repeat(3, 1fr);gap:10px}
+    .btnrow2{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px}
 
     header.hero{
       margin-top:22px;
@@ -76,13 +81,15 @@
     .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
     h1{margin:0 0 10px;font-size:clamp(28px,3.2vw,44px);line-height:1.15}
     .sub{color:var(--muted);margin:0 0 16px;font-size:1.05rem}
+
     .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .pill{
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
       padding:8px 10px;border-radius:999px;color:var(--muted);
-      font-weight:700;font-size:.92rem;
+      font-weight:800;font-size:.92rem;
     }
+
     .card{
       border:1px solid var(--line);
       background:rgba(7,18,38,.35);
@@ -99,21 +106,25 @@
       background:rgba(255,255,255,.05);
       padding:14px;border-radius:18px;
     }
-    .kpi .label{color:var(--muted);font-weight:700;font-size:.9rem}
+    .kpi .label{color:var(--muted);font-weight:800;font-size:.9rem}
     .kpi .value{font-weight:900;font-size:1.15rem;margin-top:6px}
+
     section{margin-top:20px}
     .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:24px 0 10px}
     .section-title h2{margin:0;font-size:1.45rem}
     .section-title p{margin:0;color:var(--muted)}
+
     .list{margin:0;padding-left:18px;color:var(--muted)}
     .badges{display:flex;gap:10px;flex-wrap:wrap}
     .badge{
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
       padding:8px 10px;border-radius:14px;
-      color:var(--muted);font-weight:800;font-size:.92rem;
+      color:var(--muted);font-weight:900;font-size:.92rem;
     }
+
     .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
     .footer{
       margin-top:26px;
       padding:18px;
@@ -124,7 +135,6 @@
     }
     .small{font-size:.92rem}
 
-    /* Real QR image styling */
     .qrimg{
       width:140px;height:140px;border-radius:18px;
       border:1px solid rgba(255,255,255,.20);
@@ -141,6 +151,53 @@
       color:rgba(255,255,255,.86);
     }
 
+    .panel{
+      border:1px solid rgba(111,183,255,.25);
+      background:rgba(111,183,255,.08);
+      padding:14px;border-radius:18px;
+    }
+
+    .tablewrap{
+      overflow:auto;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+    }
+    th, td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      text-align:left;
+      vertical-align:top;
+      white-space:nowrap;
+    }
+    th{
+      font-size:.9rem;
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      position:sticky; top:0;
+    }
+    td strong{white-space:normal}
+    .tag{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.12);
+      color:var(--muted);
+      font-weight:900;
+      font-size:.85rem;
+    }
+    .hint{color:var(--muted);font-size:.92rem;margin-top:10px}
+
+    @media (max-width: 980px){
+      .btnrow{grid-template-columns:1fr}
+      .btnrow2{grid-template-columns:1fr}
+    }
     @media (max-width: 860px){
       .hero-grid{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
@@ -149,6 +206,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="nav">
@@ -168,7 +226,7 @@
       </div>
 
       <div class="cta">
-        <a class="btn primary" href="https://wa.me/18293055968" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
         <a class="btn" href="mailto:sammultipleservices@gmail.com">Email</a>
       </div>
     </div>
@@ -188,19 +246,47 @@
           </div>
 
           <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn primary" href="https://wa.me/18293055968" target="_blank" rel="noopener">Start a WhatsApp chat</a>
+            <a class="btn primary" id="waHero" href="#" target="_blank" rel="noopener">Start a WhatsApp chat</a>
             <a class="btn" href="#services">View services</a>
           </div>
 
           <div style="margin-top:14px" class="notice small">
             Tip: For faster service, message us on WhatsApp with your <b>amount</b>, <b>currency</b> (RD$ / USD / HTG), and preferred <b>payment method</b>.
           </div>
+
+          <!-- 2) START TRANSACTION BUTTONS (Hero) -->
+          <section style="margin-top:18px">
+            <div class="section-title" style="margin:14px 0 10px">
+              <h2 style="font-size:1.15rem;margin:0">Start a transaction</h2>
+              <p class="muted" style="margin:0">Choose what you need. We’ll guide you in chat.</p>
+            </div>
+
+            <div class="btnrow">
+              <a class="btn primary wide" id="btnBuyUsdt" href="#" target="_blank" rel="noopener">Buy USDT</a>
+              <a class="btn wide" id="btnSellUsdt" href="#" target="_blank" rel="noopener">Sell USDT</a>
+              <a class="btn wide" id="btnRates" href="#" target="_blank" rel="noopener">Today’s Rates (send “0”)</a>
+            </div>
+
+            <div style="margin-top:10px" class="btnrow2">
+              <a class="btn wide" id="btnNatCash" href="#" target="_blank" rel="noopener">Send/Receive via NatCash</a>
+              <a class="btn wide" id="btnMonCash" href="#" target="_blank" rel="noopener">Send/Receive via MonCash</a>
+            </div>
+
+            <div style="margin-top:10px" class="btnrow2">
+              <a class="btn wide" id="btnBank" href="#" target="_blank" rel="noopener">Bank Transfer (Banco Popular)</a>
+              <a class="btn wide" id="btnZelle" href="#" target="_blank" rel="noopener">Zelle Payment</a>
+            </div>
+
+            <p class="hint">
+              For USDT on Trust Wallet, use <b>USDT TRC20</b>. For Binance transfers, we’ll confirm the destination details in chat.
+            </p>
+          </section>
         </div>
 
         <div class="card">
           <h3>Quick Contact</h3>
           <p class="muted" style="margin:0 0 10px">
-            WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>
+            WhatsApp: <a id="waPhoneLink" href="#" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>
             Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
           </p>
 
@@ -243,19 +329,28 @@
         <div class="card">
           <h3>USDT Exchange</h3>
           <ul class="list">
-            <li>Buy USDT (client pays via approved methods; we deliver to Binance or wallet)</li>
-            <li>Sell USDT (client transfers USDT; we pay out via bank / MonCash / NatCash)</li>
-            <li>Trust Wallet supported: <b>USDT TRC20</b></li>
+            <li><strong>Buy USDT:</strong> client pays via approved methods; we deliver to Binance or wallet</li>
+            <li><strong>Sell USDT:</strong> client transfers USDT; we pay out via bank / MonCash / NatCash</li>
+            <li><strong>Trust Wallet:</strong> use <b>USDT TRC20</b></li>
           </ul>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary small" id="btnBuyUsdt2" href="#" target="_blank" rel="noopener">Buy USDT</a>
+            <a class="btn small" id="btnSellUsdt2" href="#" target="_blank" rel="noopener">Sell USDT</a>
+          </div>
         </div>
 
         <div class="card">
           <h3>Payment Facilitation</h3>
           <ul class="list">
-            <li>MonCash / NatCash services (non-USDT transfers supported)</li>
-            <li>Local bank transfers (Banco Popular)</li>
-            <li>International payment coordination (case-by-case)</li>
+            <li><strong>MonCash / NatCash</strong> (non-USDT transfers supported)</li>
+            <li><strong>Local bank transfers</strong> (Banco Popular)</li>
+            <li><strong>International payment coordination</strong> (case-by-case)</li>
           </ul>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn small" id="btnNatCash2" href="#" target="_blank" rel="noopener">NatCash</a>
+            <a class="btn small" id="btnMonCash2" href="#" target="_blank" rel="noopener">MonCash</a>
+            <a class="btn small" id="btnBank2" href="#" target="_blank" rel="noopener">Bank</a>
+          </div>
         </div>
       </div>
     </section>
@@ -281,18 +376,78 @@
       </div>
     </section>
 
+    <!-- 3) CLEAN RATES TABLE AREA -->
     <section id="rates">
       <div class="section-title">
         <h2>Daily Rates</h2>
-        <p>Get today’s buy/sell rates instantly.</p>
+        <p>Transparent reference rates + instant quote by WhatsApp.</p>
       </div>
 
       <div class="card">
-        <p class="muted" style="margin-top:0">
-          Rates depend on <b>currency</b> (RD$ / USD / HTG), <b>amount</b>, and <b>payment method</b>.
-          For the fastest response, message us “<b>0</b>” on WhatsApp to request today’s rates.
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <div class="muted small">Last updated</div>
+              <div style="font-weight:900" id="lastUpdated">—</div>
+            </div>
+            <div>
+              <span class="tag">RD$ • USD • HTG</span>
+              <span class="tag" style="margin-left:8px">USDT (TRC20)</span>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0">
+            These are reference rates. Final quote depends on <b>amount</b>, <b>currency</b>, and <b>payment method</b>. For an instant quote, message us on WhatsApp.
+          </p>
+
+          <div style="margin-top:12px" class="btnrow2">
+            <a class="btn primary wide" id="btnQuote" href="#" target="_blank" rel="noopener">Get a quote (prefilled)</a>
+            <a class="btn wide" id="btnRates2" href="#" target="_blank" rel="noopener">Request today’s rates (send “0”)</a>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Buy (You pay)</th>
+                <th>Sell (You receive)</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>USDT</strong></td>
+                <td id="rateUsdtBuy">Update here</td>
+                <td id="rateUsdtSell">Update here</td>
+                <td class="muted" style="white-space:normal">
+                  Delivery to Binance or wallet. Trust Wallet: <b>USDT TRC20</b>.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>USD ($) ↔ RD$ (DOP)</strong></td>
+                <td id="rateUsdToRd">Update here</td>
+                <td id="rateRdToUsd">Update here</td>
+                <td class="muted" style="white-space:normal">
+                  Bank/PayPal/Zelle may affect final quote.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>HTG ↔ USD ($)</strong></td>
+                <td id="rateHtgToUsd">Update here</td>
+                <td id="rateUsdToHtg">Update here</td>
+                <td class="muted" style="white-space:normal">
+                  MonCash/NatCash availability depends on region and amount.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="hint">
+          To update these rates later: edit <b>index.html</b> and replace the “Update here” values (or keep this section as “quote only”).
         </p>
-        <a class="btn primary" href="https://wa.me/18293055968?text=0" target="_blank" rel="noopener">Request today’s rates (send “0”)</a>
       </div>
     </section>
 
@@ -308,7 +463,7 @@
           <p class="muted" style="margin-top:0">
             The fastest way to reach us is WhatsApp.
           </p>
-          <a class="btn primary" href="https://wa.me/18293055968" target="_blank" rel="noopener">Chat now</a>
+          <a class="btn primary" id="waContact" href="#" target="_blank" rel="noopener">Chat now</a>
           <p class="muted small" style="margin-bottom:0;margin-top:10px">
             Phone: +1 (829) 305-5968
           </p>
@@ -331,5 +486,171 @@
       </div>
     </section>
   </div>
+
+  <script>
+    // =========================
+    // CONFIG (edit here only)
+    // =========================
+    const WA_NUMBER = "18293055968"; // WhatsApp: +1 829 305 5968 (no +, no spaces)
+    const WA_BASE = `https://wa.me/${WA_NUMBER}`;
+
+    // Optional: edit these placeholders anytime to show rates on your site.
+    // If you leave "Update here", the site still works and clients can request a quote by chat.
+    const RATES = {
+      lastUpdated: "Update this date/time (e.g., 2025-12-27 10:30 PM)",
+      usdtBuy: "Update here (e.g., RD$ 00.00 / 1 USDT)",
+      usdtSell: "Update here (e.g., RD$ 00.00 / 1 USDT)",
+      usdToRd: "Update here (e.g., 1 USD → RD$ 00.00)",
+      rdToUsd: "Update here (e.g., RD$ 00.00 → 1 USD)",
+      htgToUsd: "Update here (e.g., HTG 00.00 → 1 USD)",
+      usdToHtg: "Update here (e.g., 1 USD → HTG 00.00)"
+    };
+
+    // Helpers
+    function waLink(message){
+      return `${WA_BASE}?text=${encodeURIComponent(message)}`;
+    }
+
+    // =========================
+    // Prefilled WhatsApp messages
+    // =========================
+    const MSG_GENERAL =
+`Hello Sam Multiple Services 👋
+Please help me with:
+1) Buy USDT
+2) Sell USDT
+3) Send/Receive money (NatCash / MonCash / Bank / Zelle / PayPal)
+0) Today’s rates
+
+My amount:
+Currency (RD$ / USD / HTG):
+Payment method:
+Country/Location:`;
+
+    const MSG_BUY_USDT =
+`Hello Sam Multiple Services 👋
+✅ I want to BUY USDT.
+
+Amount to buy:
+Currency I will pay with (RD$ / USD / HTG):
+Payment method (PayPal / Zelle / Bank / MonCash / NatCash):
+
+Do you have a BINANCE account? (Yes/No)
+If YES: Binance email:
+If NO: Wallet type (Trust Wallet / other) + USDT network (TRC20 preferred)
+
+Thank you.`;
+
+    const MSG_SELL_USDT =
+`Hello Sam Multiple Services 👋
+✅ I want to SELL USDT.
+
+Amount to sell (USDT):
+Where are you sending from? (Binance / Trust Wallet / other):
+USDT network (TRC20 if Trust Wallet):
+
+How do you want to receive the money back?
+(Bank / NatCash / MonCash)
+
+Country/Location:
+Thank you.`;
+
+    const MSG_NATCASH =
+`Hello Sam Multiple Services 👋
+✅ I want to SEND/RECEIVE via NatCash.
+
+Amount:
+Currency (HTG / USD / RD$):
+NatCash details (name + number):
+Direction (Send or Receive):
+Thank you.`;
+
+    const MSG_MONCASH =
+`Hello Sam Multiple Services 👋
+✅ I want to SEND/RECEIVE via MonCash.
+
+Amount:
+Currency (HTG / USD / RD$):
+MonCash details (name + number):
+Direction (Send or Receive):
+Thank you.`;
+
+    const MSG_BANK =
+`Hello Sam Multiple Services 👋
+✅ I want to use BANK TRANSFER (Banco Popular).
+
+Amount:
+Currency (RD$ / USD):
+Direction (Send or Receive):
+Thank you.`;
+
+    const MSG_ZELLE =
+`Hello Sam Multiple Services 👋
+✅ I want to use ZELLE.
+
+Amount:
+Currency (USD):
+Direction (Send or Receive):
+Thank you.`;
+
+    const MSG_RATES = "0";
+
+    const MSG_QUOTE =
+`Hello Sam Multiple Services 👋
+Please send me a QUOTE.
+
+Service (Buy USDT / Sell USDT / NatCash / MonCash / Bank / Zelle):
+Amount:
+Currency (RD$ / USD / HTG):
+Payment method:
+Binance email (if USDT & you have Binance):
+Location:
+Thank you.`;
+
+    // =========================
+    // Wire all links
+    // =========================
+    function setHref(id, href){
+      const el = document.getElementById(id);
+      if(el) el.href = href;
+    }
+
+    // Top / hero / contact
+    setHref("waTop", waLink(MSG_GENERAL));
+    setHref("waHero", waLink(MSG_GENERAL));
+    setHref("waContact", waLink(MSG_GENERAL));
+    setHref("waPhoneLink", `${WA_BASE}`);
+
+    // Buttons (hero)
+    setHref("btnBuyUsdt", waLink(MSG_BUY_USDT));
+    setHref("btnSellUsdt", waLink(MSG_SELL_USDT));
+    setHref("btnNatCash", waLink(MSG_NATCASH));
+    setHref("btnMonCash", waLink(MSG_MONCASH));
+    setHref("btnBank", waLink(MSG_BANK));
+    setHref("btnZelle", waLink(MSG_ZELLE));
+    setHref("btnRates", waLink(MSG_RATES));
+
+    // Buttons (services section duplicates)
+    setHref("btnBuyUsdt2", waLink(MSG_BUY_USDT));
+    setHref("btnSellUsdt2", waLink(MSG_SELL_USDT));
+    setHref("btnNatCash2", waLink(MSG_NATCASH));
+    setHref("btnMonCash2", waLink(MSG_MONCASH));
+    setHref("btnBank2", waLink(MSG_BANK));
+
+    // Rates actions
+    setHref("btnRates2", waLink(MSG_RATES));
+    setHref("btnQuote", waLink(MSG_QUOTE));
+
+    // =========================
+    // Render optional rates
+    // =========================
+    document.getElementById("lastUpdated").textContent = RATES.lastUpdated;
+    document.getElementById("rateUsdtBuy").textContent = RATES.usdtBuy;
+    document.getElementById("rateUsdtSell").textContent = RATES.usdtSell;
+    document.getElementById("rateUsdToRd").textContent = RATES.usdToRd;
+    document.getElementById("rateRdToUsd").textContent = RATES.rdToUsd;
+    document.getElementById("rateHtgToUsd").textContent = RATES.htgToUsd;
+    document.getElementById("rateUsdToHtg").textContent = RATES.usdToHtg;
+  </script>
 </body>
 </html>
