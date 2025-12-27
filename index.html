@@ -4,352 +4,335 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sam Multiple Services — Digital Payments & Exchange Solutions</title>
-  <meta name="description" content="Sam Multiple Services provides secure digital payment facilitation and exchange solutions supporting RD$, USD ($), and HTG. PayPal, Zelle, Banco Popular, MonCash, NatCash." />
+  <meta name="description" content="Sam Multiple Services provides secure digital payments, currency exchange, and money transfer support. USD, RD$, and HTG supported. WhatsApp-first service." />
 
   <style>
     :root{
-      --bg:#071226;
-      --card:#0b1b38;
-      --muted:#b7c4dd;
+      --bg:#061025;
+      --card:#0a1c3d;
+      --card2:#081633;
       --text:#eaf0ff;
+      --muted:#b7c4dd;
+      --line:rgba(255,255,255,.12);
       --accent:#d7b35c;
       --accent2:#6fb7ff;
-      --line:rgba(255,255,255,.10);
-      --good: rgba(111,183,255,.18);
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --radius: 22px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 20% 0%, rgba(111,183,255,.18), transparent 55%),
-        radial-gradient(900px 600px at 80% 10%, rgba(215,179,92,.20), transparent 60%),
-        var(--bg);
       color:var(--text);
       line-height:1.45;
+      background:
+        radial-gradient(1200px 600px at 15% 0%, rgba(111,183,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(215,179,92,.18), transparent 60%),
+        radial-gradient(700px 520px at 50% 100%, rgba(111,183,255,.12), transparent 60%),
+        var(--bg);
     }
     a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
-    .nav{
+    .wrap{max-width:1120px;margin:0 auto;padding:26px 18px 40px}
+    .topbar{
       display:flex;align-items:center;justify-content:space-between;gap:12px;
       padding:14px 16px;border:1px solid var(--line);border-radius:18px;
-      background:rgba(11,27,56,.55);backdrop-filter: blur(8px);
+      background:rgba(10,28,61,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 50px rgba(0,0,0,.22);
+      position:sticky;top:14px;z-index:10;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-    .logo{
-      width:40px;height:40px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(215,179,92,.9), rgba(111,183,255,.9));
-      display:grid;place-items:center;color:#071226;font-weight:900;
-      box-shadow: 0 10px 35px rgba(0,0,0,.28);
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:42px;height:42px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(215,179,92,.95), rgba(111,183,255,.92));
+      display:grid;place-items:center;
+      color:#061025;font-weight:1000;letter-spacing:.5px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.30);
+      user-select:none;
     }
-    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
-    .navlinks a{
+    .brand b{display:block;font-size:1.02rem}
+    .brand span{display:block;color:var(--muted);font-size:.9rem;margin-top:1px}
+
+    .nav{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;
+    }
+    .nav a{
       text-decoration:none;color:var(--muted);
       padding:8px 10px;border-radius:12px;
+      border:1px solid transparent;
     }
-    .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text);border-color:rgba(255,255,255,.06)}
 
+    .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:14px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:10px 14px;border-radius:14px;text-decoration:none;
-      display:inline-flex;align-items:center;gap:10px;
-      font-weight:800;
+      color:var(--text);text-decoration:none;font-weight:800;
       cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.10)}
     .btn.primary{
-      border-color: rgba(215,179,92,.45);
-      background: linear-gradient(135deg, rgba(215,179,92,.22), rgba(111,183,255,.12));
+      border-color: rgba(215,179,92,.40);
+      background: linear-gradient(135deg, rgba(215,179,92,.22), rgba(111,183,255,.10));
     }
-    .btn.small{padding:8px 12px;border-radius:12px;font-weight:800;font-size:.92rem}
-    .btn.wide{justify-content:center;width:100%}
-    .btnrow{display:grid;grid-template-columns:repeat(3, 1fr);gap:10px}
-    .btnrow2{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px}
 
-    header.hero{
-      margin-top:22px;
-      padding:28px 18px;
-      border-radius:22px;
+    /* Language switch */
+    .lang{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:14px;
       border:1px solid var(--line);
-      background:rgba(11,27,56,.45);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+      background:rgba(255,255,255,.04);
     }
-    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
-    h1{margin:0 0 10px;font-size:clamp(28px,3.2vw,44px);line-height:1.15}
-    .sub{color:var(--muted);margin:0 0 16px;font-size:1.05rem}
+    .lang label{color:var(--muted);font-weight:800;font-size:.9rem}
+    .lang select{
+      background:transparent;color:var(--text);
+      border:none;outline:none;font-weight:800;
+      padding:4px 6px;border-radius:10px;
+      cursor:pointer;
+    }
+    .lang option{color:#061025}
 
-    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      padding:22px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(900px 360px at 20% 20%, rgba(111,183,255,.16), transparent 65%),
+        radial-gradient(700px 360px at 80% 0%, rgba(215,179,92,.16), transparent 62%),
+        rgba(10,28,61,.40);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:
+        linear-gradient(120deg, rgba(215,179,92,.10), transparent 35%),
+        linear-gradient(240deg, rgba(111,183,255,.10), transparent 40%);
+      pointer-events:none;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;position:relative}
+    h1{margin:0 0 10px;font-size:clamp(28px,3.3vw,44px);line-height:1.12}
+    .sub{margin:0 0 14px;color:var(--muted);font-size:1.05rem}
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 0}
     .pill{
+      padding:8px 10px;border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.06);
-      padding:8px 10px;border-radius:999px;color:var(--muted);
-      font-weight:800;font-size:.92rem;
+      color:var(--muted);font-weight:900;font-size:.92rem;
     }
 
     .card{
       border:1px solid var(--line);
-      background:rgba(7,18,38,.35);
-      padding:16px;border-radius:20px;
+      background:rgba(8,22,51,.55);
+      border-radius:20px;
+      padding:16px;
     }
     .card h3{margin:0 0 8px}
     .muted{color:var(--muted)}
-    .grid{
-      display:grid;grid-template-columns:repeat(3, 1fr);
-      gap:14px;margin-top:14px
-    }
+    .small{font-size:.92rem}
+
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
     .kpi{
       border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
       background:rgba(255,255,255,.05);
-      padding:14px;border-radius:18px;
     }
-    .kpi .label{color:var(--muted);font-weight:800;font-size:.9rem}
-    .kpi .value{font-weight:900;font-size:1.15rem;margin-top:6px}
+    .kpi .label{color:var(--muted);font-weight:900;font-size:.9rem}
+    .kpi .value{margin-top:6px;font-weight:1000;font-size:1.06rem}
 
-    section{margin-top:20px}
-    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:24px 0 10px}
+    section{margin-top:22px}
+    .section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin:22px 0 10px}
     .section-title h2{margin:0;font-size:1.45rem}
     .section-title p{margin:0;color:var(--muted)}
-
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .list{margin:0;padding-left:18px;color:var(--muted)}
     .badges{display:flex;gap:10px;flex-wrap:wrap}
     .badge{
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
       padding:8px 10px;border-radius:14px;
-      color:var(--muted);font-weight:900;font-size:.92rem;
+      color:var(--muted);font-weight:1000;font-size:.92rem;
     }
 
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-    .footer{
-      margin-top:26px;
-      padding:18px;
-      border-radius:18px;border:1px solid var(--line);
-      background:rgba(11,27,56,.35);
-      color:var(--muted);
-      font-size:.92rem;
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .step{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      border-radius:20px;padding:14px;
     }
-    .small{font-size:.92rem}
-
-    .qrimg{
-      width:140px;height:140px;border-radius:18px;
-      border:1px solid rgba(255,255,255,.20);
-      background:rgba(255,255,255,.04);
-      object-fit:cover;
-      display:block;
-      margin-top:12px;
-    }
-
+    .step b{display:block;margin-bottom:6px}
     .notice{
       border:1px solid rgba(215,179,92,.35);
       background:rgba(215,179,92,.10);
       padding:12px;border-radius:16px;
-      color:rgba(255,255,255,.86);
+      color:rgba(255,255,255,.88);
     }
 
-    .panel{
-      border:1px solid rgba(111,183,255,.25);
-      background:rgba(111,183,255,.08);
-      padding:14px;border-radius:18px;
-    }
-
-    .tablewrap{
-      overflow:auto;
-      border-radius:18px;
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    details{
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.05);
+      border-radius:18px;padding:12px 14px;
     }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:760px;
-    }
-    th, td{
-      padding:12px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      text-align:left;
-      vertical-align:top;
-      white-space:nowrap;
-    }
-    th{
-      font-size:.9rem;
-      color:var(--muted);
-      background:rgba(255,255,255,.03);
-      position:sticky; top:0;
-    }
-    td strong{white-space:normal}
-    .tag{
-      display:inline-flex;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.12);
-      color:var(--muted);
-      font-weight:900;
-      font-size:.85rem;
-    }
-    .hint{color:var(--muted);font-size:.92rem;margin-top:10px}
+    summary{cursor:pointer;font-weight:1000}
+    details p{margin:10px 0 0;color:var(--muted)}
 
-    @media (max-width: 980px){
-      .btnrow{grid-template-columns:1fr}
-      .btnrow2{grid-template-columns:1fr}
+    .footer{
+      margin-top:26px;
+      padding:16px 16px;
+      border-radius:18px;border:1px solid var(--line);
+      background:rgba(10,28,61,.35);
+      color:var(--muted);
+      font-size:.92rem;
     }
-    @media (max-width: 860px){
+
+    @media (max-width: 920px){
       .hero-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
       .two{grid-template-columns:1fr}
-      .cta{justify-content:flex-start}
+      .steps{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      .nav{display:none}
+      .topbar{top:10px}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="nav">
+    <div class="topbar">
       <div class="brand">
-        <div class="logo">SMS</div>
+        <div class="mark">SMS</div>
         <div>
-          <div>Sam Multiple Services</div>
-          <div class="muted small">Digital Payments & Exchange Solutions</div>
+          <b id="t_brand">Sam Multiple Services</b>
+          <span id="t_tagline">Digital Payments & Exchange Solutions</span>
         </div>
       </div>
 
-      <div class="navlinks">
-        <a href="#services">Services</a>
-        <a href="#methods">Payment Methods</a>
-        <a href="#rates">Rates</a>
-        <a href="#contact">Contact</a>
+      <div class="nav" aria-label="Primary">
+        <a href="#services" id="t_nav_services">Services</a>
+        <a href="#methods" id="t_nav_methods">Payment Methods</a>
+        <a href="#how" id="t_nav_how">How it works</a>
+        <a href="#rates" id="t_nav_rates">Rates</a>
+        <a href="#faq" id="t_nav_faq">FAQ</a>
+        <a href="#contact" id="t_nav_contact">Contact</a>
       </div>
 
-      <div class="cta">
-        <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        <a class="btn" href="mailto:sammultipleservices@gmail.com">Email</a>
+      <div class="controls">
+        <div class="lang">
+          <label for="langSel" id="t_lang_label">Language</label>
+          <select id="langSel" aria-label="Language selector">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="ht">Kreyòl</option>
+          </select>
+        </div>
+        <a class="btn primary" id="btn_whatsapp_top" href="https://wa.me/18293055968" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" id="btn_email_top" href="mailto:sammultipleservices@gmail.com">Email</a>
       </div>
     </div>
 
-    <header class="hero">
+    <header class="hero" id="home">
       <div class="hero-grid">
         <div>
-          <h1>Secure digital payments and USDT exchange — built for RD, Haiti, and international clients.</h1>
-          <p class="sub">
-            We support <b>RD$ (DOP)</b>, <b>USD ($)</b>, and <b>HTG</b>. Fast communication, clear steps, and professional service.
+          <h1 id="t_h1">Secure digital payments, money transfers, and exchange support — built for RD, Haiti, and international clients.</h1>
+          <p class="sub" id="t_sub">
+            We support <b>USD ($)</b>, <b>RD$ (DOP)</b>, and <b>HTG</b>. WhatsApp-first service, clear steps, fast coordination.
           </p>
 
           <div class="pillrow">
-            <span class="pill">RD$ • USD ($) • HTG</span>
-            <span class="pill">USDT (TRC20 supported)</span>
-            <span class="pill">PayPal • Zelle • Bank • MonCash • NatCash</span>
+            <span class="pill" id="t_pill_1">USD • RD$ • HTG</span>
+            <span class="pill" id="t_pill_2">USDT (TRC20 supported)</span>
+            <span class="pill" id="t_pill_3">PayPal • Zelle • Bank • NatCash • MonCash</span>
           </div>
 
-          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn primary" id="waHero" href="#" target="_blank" rel="noopener">Start a WhatsApp chat</a>
-            <a class="btn" href="#services">View services</a>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" id="btn_start_chat" href="https://wa.me/18293055968" target="_blank" rel="noopener">Start WhatsApp Chat</a>
+            <a class="btn" id="btn_view_services" href="#services">View Services</a>
+            <a class="btn" id="btn_rates0" href="https://wa.me/18293055968?text=0" target="_blank" rel="noopener">Send “0” for Today’s Rates</a>
           </div>
 
-          <div style="margin-top:14px" class="notice small">
-            Tip: For faster service, message us on WhatsApp with your <b>amount</b>, <b>currency</b> (RD$ / USD / HTG), and preferred <b>payment method</b>.
+          <div class="notice small" style="margin-top:14px" id="t_tip">
+            Tip: For faster service, message us your <b>amount</b>, <b>currency</b> (USD / RD$ / HTG) and preferred <b>payment method</b>.
           </div>
-
-          <!-- 2) START TRANSACTION BUTTONS (Hero) -->
-          <section style="margin-top:18px">
-            <div class="section-title" style="margin:14px 0 10px">
-              <h2 style="font-size:1.15rem;margin:0">Start a transaction</h2>
-              <p class="muted" style="margin:0">Choose what you need. We’ll guide you in chat.</p>
-            </div>
-
-            <div class="btnrow">
-              <a class="btn primary wide" id="btnBuyUsdt" href="#" target="_blank" rel="noopener">Buy USDT</a>
-              <a class="btn wide" id="btnSellUsdt" href="#" target="_blank" rel="noopener">Sell USDT</a>
-              <a class="btn wide" id="btnRates" href="#" target="_blank" rel="noopener">Today’s Rates (send “0”)</a>
-            </div>
-
-            <div style="margin-top:10px" class="btnrow2">
-              <a class="btn wide" id="btnNatCash" href="#" target="_blank" rel="noopener">Send/Receive via NatCash</a>
-              <a class="btn wide" id="btnMonCash" href="#" target="_blank" rel="noopener">Send/Receive via MonCash</a>
-            </div>
-
-            <div style="margin-top:10px" class="btnrow2">
-              <a class="btn wide" id="btnBank" href="#" target="_blank" rel="noopener">Bank Transfer (Banco Popular)</a>
-              <a class="btn wide" id="btnZelle" href="#" target="_blank" rel="noopener">Zelle Payment</a>
-            </div>
-
-            <p class="hint">
-              For USDT on Trust Wallet, use <b>USDT TRC20</b>. For Binance transfers, we’ll confirm the destination details in chat.
-            </p>
-          </section>
         </div>
 
         <div class="card">
-          <h3>Quick Contact</h3>
-          <p class="muted" style="margin:0 0 10px">
-            WhatsApp: <a id="waPhoneLink" href="#" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>
+          <h3 id="t_quick_title">Quick Contact</h3>
+          <p class="muted" style="margin:0 0 10px" id="t_quick_body">
+            WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>
             Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
           </p>
 
-          <div class="kpi">
-            <div class="label">Payment details</div>
-            <div class="value">Shared securely in chat</div>
-            <div class="muted small">We confirm the amount, currency, and method before you send funds.</div>
+          <div class="kpi" style="margin-top:10px">
+            <div class="label" id="t_whatsapp_label">WhatsApp-first service</div>
+            <div class="value" id="t_whatsapp_value">Fast replies & clear steps</div>
+            <div class="muted small" id="t_whatsapp_note">We confirm details before any transfer.</div>
           </div>
 
-          <img class="qrimg" src="whatsapp-qr.png" alt="Scan to chat on WhatsApp" />
-          <p class="muted small" style="margin:10px 0 0">
-            Scan the QR to start a WhatsApp chat with Sam Multiple Services.
-          </p>
+          <div style="margin-top:12px" class="muted small" id="t_disclaimer_small">
+            We show payment brands as accepted methods. We do not claim official affiliation with any provider.
+          </div>
         </div>
       </div>
 
-      <div class="grid">
+      <div class="kpis">
         <div class="kpi">
-          <div class="label">Coverage</div>
-          <div class="value">Dominican Republic • Haiti • International</div>
+          <div class="label" id="t_kpi1_label">Coverage</div>
+          <div class="value" id="t_kpi1_value">Dominican Republic • Haiti • International</div>
         </div>
         <div class="kpi">
-          <div class="label">Currencies</div>
-          <div class="value">RD$ (DOP) • USD ($) • HTG</div>
+          <div class="label" id="t_kpi2_label">Currencies</div>
+          <div class="value" id="t_kpi2_value">USD ($) • RD$ (DOP) • HTG</div>
         </div>
         <div class="kpi">
-          <div class="label">Support</div>
-          <div class="value">WhatsApp-first service</div>
+          <div class="label" id="t_kpi3_label">Support</div>
+          <div class="value" id="t_kpi3_value">WhatsApp • Email</div>
         </div>
       </div>
     </header>
 
     <section id="services">
       <div class="section-title">
-        <h2>Services</h2>
-        <p>Clear options, fast processing.</p>
+        <h2 id="t_services_title">Services</h2>
+        <p id="t_services_sub">Choose what you need, we guide you step-by-step.</p>
       </div>
 
       <div class="two">
         <div class="card">
-          <h3>USDT Exchange</h3>
-          <ul class="list">
-            <li><strong>Buy USDT:</strong> client pays via approved methods; we deliver to Binance or wallet</li>
-            <li><strong>Sell USDT:</strong> client transfers USDT; we pay out via bank / MonCash / NatCash</li>
-            <li><strong>Trust Wallet:</strong> use <b>USDT TRC20</b></li>
+          <h3 id="t_usdt_title">USDT Exchange Support</h3>
+          <ul class="list" id="t_usdt_list">
+            <li>Buy USDT (client pays via approved methods; we deliver to Binance or wallet)</li>
+            <li>Sell USDT (client transfers USDT; we pay out via bank / NatCash / MonCash)</li>
+            <li>Trust Wallet supported: <b>USDT TRC20</b></li>
           </ul>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn primary small" id="btnBuyUsdt2" href="#" target="_blank" rel="noopener">Buy USDT</a>
-            <a class="btn small" id="btnSellUsdt2" href="#" target="_blank" rel="noopener">Sell USDT</a>
+            <a class="btn primary" id="btn_buy" href="https://wa.me/18293055968?text=Buy%20USDT%20-%20Amount:%20%0ACurrency%20(USD/RD$/HTG):%20%0APayment%20method:%20%0ABinance%20account%20(YES/NO):%20%0AIf%20YES,%20Binance%20email:%20" target="_blank" rel="noopener">Buy USDT</a>
+            <a class="btn" id="btn_sell" href="https://wa.me/18293055968?text=Sell%20USDT%20-%20USDT%20Amount:%20%0ABinance%20account%20(YES/NO):%20%0APayout%20method%20(Bank/NatCash/MonCash):%20%0APayout%20currency%20(USD/RD$/HTG):%20" target="_blank" rel="noopener">Sell USDT</a>
           </div>
         </div>
 
         <div class="card">
-          <h3>Payment Facilitation</h3>
-          <ul class="list">
-            <li><strong>MonCash / NatCash</strong> (non-USDT transfers supported)</li>
-            <li><strong>Local bank transfers</strong> (Banco Popular)</li>
-            <li><strong>International payment coordination</strong> (case-by-case)</li>
+          <h3 id="t_transfer_title">Money Transfer & Payment Facilitation</h3>
+          <ul class="list" id="t_transfer_list">
+            <li>NatCash / MonCash services (non-USDT transfers supported)</li>
+            <li>Local bank transfers (Banco Popular)</li>
+            <li>International payment coordination (case-by-case)</li>
           </ul>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn small" id="btnNatCash2" href="#" target="_blank" rel="noopener">NatCash</a>
-            <a class="btn small" id="btnMonCash2" href="#" target="_blank" rel="noopener">MonCash</a>
-            <a class="btn small" id="btnBank2" href="#" target="_blank" rel="noopener">Bank</a>
+            <a class="btn primary" id="btn_transfer" href="https://wa.me/18293055968?text=Money%20Transfer%20-%20Amount:%20%0ACurrency%20(USD/RD$/HTG):%20%0AMethod%20(NatCash/MonCash/Bank):%20%0AReceiver%20details:%20" target="_blank" rel="noopener">Money Transfer</a>
+            <a class="btn" id="btn_support" href="#contact">Contact Support</a>
           </div>
         </div>
       </div>
@@ -357,300 +340,555 @@
 
     <section id="methods">
       <div class="section-title">
-        <h2>Payment Methods</h2>
-        <p>Availability may vary by region and amount.</p>
+        <h2 id="t_methods_title">Payment Methods</h2>
+        <p id="t_methods_sub">Availability may vary by region and amount.</p>
       </div>
 
       <div class="card">
         <div class="badges">
-          <span class="badge">PayPal (USD)</span>
-          <span class="badge">Zelle</span>
-          <span class="badge">Banco Popular (RD$ / USD)</span>
-          <span class="badge">MonCash (HTG)</span>
-          <span class="badge">NatCash (HTG)</span>
-          <span class="badge">Binance (USDT)</span>
+          <span class="badge" id="t_badge_paypal">PayPal (USD)</span>
+          <span class="badge" id="t_badge_zelle">Zelle</span>
+          <span class="badge" id="t_badge_bank">Banco Popular (RD$ / USD)</span>
+          <span class="badge" id="t_badge_moncash">MonCash (HTG)</span>
+          <span class="badge" id="t_badge_natcash">NatCash (HTG)</span>
+          <span class="badge" id="t_badge_binance">Binance (USDT)</span>
         </div>
-        <p class="muted small" style="margin-top:12px">
-          We show payment brands as accepted methods. We do not claim official affiliation with any payment provider.
+        <p class="muted small" style="margin-top:12px" id="t_methods_note">
+          We confirm method, amount, and currency before any transfer. Keep screenshots/receipts for verification.
         </p>
       </div>
     </section>
 
-    <!-- 3) CLEAN RATES TABLE AREA -->
+    <section id="how">
+      <div class="section-title">
+        <h2 id="t_how_title">How it works</h2>
+        <p id="t_how_sub">A simple, transparent process.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <b id="t_step1_title">1) Send details</b>
+          <div class="muted" id="t_step1_body">Message the amount, currency (USD/RD$/HTG), and payment method on WhatsApp.</div>
+        </div>
+        <div class="step">
+          <b id="t_step2_title">2) Confirm</b>
+          <div class="muted" id="t_step2_body">We confirm the rate, fees (if any), and required info before you send.</div>
+        </div>
+        <div class="step">
+          <b id="t_step3_title">3) Complete</b>
+          <div class="muted" id="t_step3_body">We complete delivery/payout and confirm when finished.</div>
+        </div>
+      </div>
+
+      <div class="notice small" style="margin-top:12px" id="t_how_notice">
+        For today’s rates, send <b>0</b> on WhatsApp. Rates depend on amount, currency, and method.
+      </div>
+    </section>
+
     <section id="rates">
       <div class="section-title">
-        <h2>Daily Rates</h2>
-        <p>Transparent reference rates + instant quote by WhatsApp.</p>
+        <h2 id="t_rates_title">Daily Rates</h2>
+        <p id="t_rates_sub">Get today’s buy/sell rates instantly.</p>
       </div>
 
       <div class="card">
-        <div class="panel">
-          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-            <div>
-              <div class="muted small">Last updated</div>
-              <div style="font-weight:900" id="lastUpdated">—</div>
-            </div>
-            <div>
-              <span class="tag">RD$ • USD • HTG</span>
-              <span class="tag" style="margin-left:8px">USDT (TRC20)</span>
-            </div>
-          </div>
-
-          <p class="muted" style="margin:12px 0 0">
-            These are reference rates. Final quote depends on <b>amount</b>, <b>currency</b>, and <b>payment method</b>. For an instant quote, message us on WhatsApp.
-          </p>
-
-          <div style="margin-top:12px" class="btnrow2">
-            <a class="btn primary wide" id="btnQuote" href="#" target="_blank" rel="noopener">Get a quote (prefilled)</a>
-            <a class="btn wide" id="btnRates2" href="#" target="_blank" rel="noopener">Request today’s rates (send “0”)</a>
-          </div>
-        </div>
-
-        <div style="margin-top:14px" class="tablewrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Buy (You pay)</th>
-                <th>Sell (You receive)</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>USDT</strong></td>
-                <td id="rateUsdtBuy">Update here</td>
-                <td id="rateUsdtSell">Update here</td>
-                <td class="muted" style="white-space:normal">
-                  Delivery to Binance or wallet. Trust Wallet: <b>USDT TRC20</b>.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>USD ($) ↔ RD$ (DOP)</strong></td>
-                <td id="rateUsdToRd">Update here</td>
-                <td id="rateRdToUsd">Update here</td>
-                <td class="muted" style="white-space:normal">
-                  Bank/PayPal/Zelle may affect final quote.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>HTG ↔ USD ($)</strong></td>
-                <td id="rateHtgToUsd">Update here</td>
-                <td id="rateUsdToHtg">Update here</td>
-                <td class="muted" style="white-space:normal">
-                  MonCash/NatCash availability depends on region and amount.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="hint">
-          To update these rates later: edit <b>index.html</b> and replace the “Update here” values (or keep this section as “quote only”).
+        <p class="muted" style="margin-top:0" id="t_rates_body">
+          Rates depend on <b>currency</b> (USD/RD$/HTG), <b>amount</b>, and <b>payment method</b>.
+          For the fastest response, send <b>0</b> on WhatsApp.
         </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" id="btn_rates_send0" href="https://wa.me/18293055968?text=0" target="_blank" rel="noopener">Request Today’s Rates (send “0”)</a>
+          <a class="btn" id="btn_rates_template" href="https://wa.me/18293055968?text=Rates%20request%20-%20Amount:%20%0ACurrency%20(USD/RD$/HTG):%20%0AMethod:%20" target="_blank" rel="noopener">Send Details Template</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-title">
+        <h2 id="t_faq_title">FAQ</h2>
+        <p id="t_faq_sub">Quick answers to common questions.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary id="t_faq1_q">Do I need a Binance account?</summary>
+          <p id="t_faq1_a">For USDT transactions, Binance can make transfers easier. If you have it, we may request your Binance email to streamline processing.</p>
+        </details>
+        <details>
+          <summary id="t_faq2_q">Which USDT network do you support?</summary>
+          <p id="t_faq2_a">For Trust Wallet and similar wallets, we support <b>USDT TRC20</b>. Always confirm the network before sending.</p>
+        </details>
+        <details>
+          <summary id="t_faq3_q">Can I use NatCash / MonCash without USDT?</summary>
+          <p id="t_faq3_a">Yes. NatCash/MonCash can be used for non-USDT money transfer services as well.</p>
+        </details>
+        <details>
+          <summary id="t_faq4_q">How long does it take?</summary>
+          <p id="t_faq4_a">Timing depends on method, amount, and network/bank processing. We confirm the expected processing time before you send.</p>
+        </details>
       </div>
     </section>
 
     <section id="contact">
       <div class="section-title">
-        <h2>Contact</h2>
-        <p>We respond as soon as possible.</p>
+        <h2 id="t_contact_title">Contact</h2>
+        <p id="t_contact_sub">We respond as soon as possible.</p>
       </div>
 
       <div class="two">
         <div class="card">
-          <h3>WhatsApp</h3>
-          <p class="muted" style="margin-top:0">
-            The fastest way to reach us is WhatsApp.
+          <h3 id="t_contact_whatsapp_title">WhatsApp</h3>
+          <p class="muted" style="margin-top:0" id="t_contact_whatsapp_body">
+            Fastest support channel.
           </p>
-          <a class="btn primary" id="waContact" href="#" target="_blank" rel="noopener">Chat now</a>
-          <p class="muted small" style="margin-bottom:0;margin-top:10px">
-            Phone: +1 (829) 305-5968
-          </p>
+          <a class="btn primary" id="btn_chat_now" href="https://wa.me/18293055968" target="_blank" rel="noopener">Chat now</a>
+          <p class="muted small" style="margin:10px 0 0" id="t_contact_phone">Phone: +1 (829) 305-5968</p>
         </div>
 
         <div class="card">
-          <h3>Email</h3>
-          <p class="muted" style="margin-top:0">
-            For documentation or business inquiries:
+          <h3 id="t_contact_email_title">Email</h3>
+          <p class="muted" style="margin-top:0" id="t_contact_email_body">
+            For business inquiries and documentation.
           </p>
-          <a class="btn" href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
-          <p class="muted small" style="margin-bottom:0;margin-top:10px">
+          <a class="btn" id="btn_email" href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>
+          <p class="muted small" style="margin:10px 0 0" id="t_contact_email_note">
             Response time may vary during peak hours.
           </p>
         </div>
       </div>
 
-      <div class="footer">
-        <b>Notice:</b> Services are provided based on availability and regional requirements. Always confirm the amount, currency (RD$ / USD / HTG), and method before sending funds.
+      <div class="footer" id="t_footer">
+        <b>Notice:</b> Services are provided based on availability and regional requirements. Always confirm the amount, currency, network (when applicable), and method before sending funds. Keep receipts/screenshots for verification.
       </div>
     </section>
   </div>
 
   <script>
-    // =========================
-    // CONFIG (edit here only)
-    // =========================
-    const WA_NUMBER = "18293055968"; // WhatsApp: +1 829 305 5968 (no +, no spaces)
-    const WA_BASE = `https://wa.me/${WA_NUMBER}`;
+    const TEXT = {
+      en: {
+        t_brand: "Sam Multiple Services",
+        t_tagline: "Digital Payments & Exchange Solutions",
+        t_lang_label: "Language",
 
-    // Optional: edit these placeholders anytime to show rates on your site.
-    // If you leave "Update here", the site still works and clients can request a quote by chat.
-    const RATES = {
-      lastUpdated: "Update this date/time (e.g., 2025-12-27 10:30 PM)",
-      usdtBuy: "Update here (e.g., RD$ 00.00 / 1 USDT)",
-      usdtSell: "Update here (e.g., RD$ 00.00 / 1 USDT)",
-      usdToRd: "Update here (e.g., 1 USD → RD$ 00.00)",
-      rdToUsd: "Update here (e.g., RD$ 00.00 → 1 USD)",
-      htgToUsd: "Update here (e.g., HTG 00.00 → 1 USD)",
-      usdToHtg: "Update here (e.g., 1 USD → HTG 00.00)"
+        t_nav_services: "Services",
+        t_nav_methods: "Payment Methods",
+        t_nav_how: "How it works",
+        t_nav_rates: "Rates",
+        t_nav_faq: "FAQ",
+        t_nav_contact: "Contact",
+
+        btn_whatsapp_top: "WhatsApp",
+        btn_start_chat: "Start WhatsApp Chat",
+        btn_view_services: "View Services",
+        btn_rates0: "Send “0” for Today’s Rates",
+
+        t_h1: "Secure digital payments, money transfers, and exchange support — built for RD, Haiti, and international clients.",
+        t_sub: "We support <b>USD ($)</b>, <b>RD$ (DOP)</b>, and <b>HTG</b>. WhatsApp-first service, clear steps, fast coordination.",
+        t_pill_1: "USD • RD$ • HTG",
+        t_pill_2: "USDT (TRC20 supported)",
+        t_pill_3: "PayPal • Zelle • Bank • NatCash • MonCash",
+        t_tip: "Tip: For faster service, message us your <b>amount</b>, <b>currency</b> (USD / RD$ / HTG) and preferred <b>payment method</b>.",
+
+        t_quick_title: "Quick Contact",
+        t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_whatsapp_label: "WhatsApp-first service",
+        t_whatsapp_value: "Fast replies & clear steps",
+        t_whatsapp_note: "We confirm details before any transfer.",
+        t_disclaimer_small: "We show payment brands as accepted methods. We do not claim official affiliation with any provider.",
+
+        t_kpi1_label: "Coverage",
+        t_kpi1_value: "Dominican Republic • Haiti • International",
+        t_kpi2_label: "Currencies",
+        t_kpi2_value: "USD ($) • RD$ (DOP) • HTG",
+        t_kpi3_label: "Support",
+        t_kpi3_value: "WhatsApp • Email",
+
+        t_services_title: "Services",
+        t_services_sub: "Choose what you need, we guide you step-by-step.",
+
+        t_usdt_title: "USDT Exchange Support",
+        t_usdt_list: "<li>Buy USDT (client pays via approved methods; we deliver to Binance or wallet)</li><li>Sell USDT (client transfers USDT; we pay out via bank / NatCash / MonCash)</li><li>Trust Wallet supported: <b>USDT TRC20</b></li>",
+        btn_buy: "Buy USDT",
+        btn_sell: "Sell USDT",
+
+        t_transfer_title: "Money Transfer & Payment Facilitation",
+        t_transfer_list: "<li>NatCash / MonCash services (non-USDT transfers supported)</li><li>Local bank transfers (Banco Popular)</li><li>International payment coordination (case-by-case)</li>",
+        btn_transfer: "Money Transfer",
+        btn_support: "Contact Support",
+
+        t_methods_title: "Payment Methods",
+        t_methods_sub: "Availability may vary by region and amount.",
+        t_badge_paypal: "PayPal (USD)",
+        t_badge_zelle: "Zelle",
+        t_badge_bank: "Banco Popular (RD$ / USD)",
+        t_badge_moncash: "MonCash (HTG)",
+        t_badge_natcash: "NatCash (HTG)",
+        t_badge_binance: "Binance (USDT)",
+        t_methods_note: "We confirm method, amount, and currency before any transfer. Keep screenshots/receipts for verification.",
+
+        t_how_title: "How it works",
+        t_how_sub: "A simple, transparent process.",
+        t_step1_title: "1) Send details",
+        t_step1_body: "Message the amount, currency (USD/RD$/HTG), and payment method on WhatsApp.",
+        t_step2_title: "2) Confirm",
+        t_step2_body: "We confirm the rate, fees (if any), and required info before you send.",
+        t_step3_title: "3) Complete",
+        t_step3_body: "We complete delivery/payout and confirm when finished.",
+        t_how_notice: "For today’s rates, send <b>0</b> on WhatsApp. Rates depend on amount, currency, and method.",
+
+        t_rates_title: "Daily Rates",
+        t_rates_sub: "Get today’s buy/sell rates instantly.",
+        t_rates_body: "Rates depend on <b>currency</b> (USD/RD$/HTG), <b>amount</b>, and <b>payment method</b>. For the fastest response, send <b>0</b> on WhatsApp.",
+        btn_rates_send0: "Request Today’s Rates (send “0”)",
+        btn_rates_template: "Send Details Template",
+
+        t_faq_title: "FAQ",
+        t_faq_sub: "Quick answers to common questions.",
+        t_faq1_q: "Do I need a Binance account?",
+        t_faq1_a: "For USDT transactions, Binance can make transfers easier. If you have it, we may request your Binance email to streamline processing.",
+        t_faq2_q: "Which USDT network do you support?",
+        t_faq2_a: "For Trust Wallet and similar wallets, we support <b>USDT TRC20</b>. Always confirm the network before sending.",
+        t_faq3_q: "Can I use NatCash / MonCash without USDT?",
+        t_faq3_a: "Yes. NatCash/MonCash can be used for non-USDT money transfer services as well.",
+        t_faq4_q: "How long does it take?",
+        t_faq4_a: "Timing depends on method, amount, and network/bank processing. We confirm the expected processing time before you send.",
+
+        t_contact_title: "Contact",
+        t_contact_sub: "We respond as soon as possible.",
+        t_contact_whatsapp_title: "WhatsApp",
+        t_contact_whatsapp_body: "Fastest support channel.",
+        btn_chat_now: "Chat now",
+        t_contact_phone: "Phone: +1 (829) 305-5968",
+        t_contact_email_title: "Email",
+        t_contact_email_body: "For business inquiries and documentation.",
+        t_contact_email_note: "Response time may vary during peak hours.",
+
+        t_footer: "<b>Notice:</b> Services are provided based on availability and regional requirements. Always confirm the amount, currency, network (when applicable), and method before sending funds. Keep receipts/screenshots for verification."
+      },
+
+      fr: {
+        t_brand: "Sam Multiple Services",
+        t_tagline: "Paiements digitaux & solutions de change",
+        t_lang_label: "Langue",
+
+        t_nav_services: "Services",
+        t_nav_methods: "Moyens de paiement",
+        t_nav_how: "Comment ça marche",
+        t_nav_rates: "Taux",
+        t_nav_faq: "FAQ",
+        t_nav_contact: "Contact",
+
+        btn_whatsapp_top: "WhatsApp",
+        btn_start_chat: "Démarrer sur WhatsApp",
+        btn_view_services: "Voir les services",
+        btn_rates0: "Envoyer « 0 » pour les taux",
+
+        t_h1: "Paiements digitaux, transferts d’argent et assistance de change — pour la RD, Haïti et l’international.",
+        t_sub: "Nous acceptons <b>USD ($)</b>, <b>RD$ (DOP)</b> et <b>HTG</b>. Service prioritairement via WhatsApp, étapes claires, coordination rapide.",
+        t_pill_1: "USD • RD$ • HTG",
+        t_pill_2: "USDT (TRC20 supporté)",
+        t_pill_3: "PayPal • Zelle • Banque • NatCash • MonCash",
+        t_tip: "Astuce : Pour aller plus vite, envoyez le <b>montant</b>, la <b>devise</b> (USD / RD$ / HTG) et le <b>moyen de paiement</b>.",
+
+        t_quick_title: "Contact rapide",
+        t_quick_body: 'WhatsApp : <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email : <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_whatsapp_label: "Service WhatsApp",
+        t_whatsapp_value: "Réponses rapides & étapes claires",
+        t_whatsapp_note: "Nous confirmons les détails avant tout transfert.",
+        t_disclaimer_small: "Les marques citées sont des moyens acceptés. Aucune affiliation officielle n’est revendiquée.",
+
+        t_kpi1_label: "Zone",
+        t_kpi1_value: "République Dominicaine • Haïti • International",
+        t_kpi2_label: "Devises",
+        t_kpi2_value: "USD ($) • RD$ (DOP) • HTG",
+        t_kpi3_label: "Support",
+        t_kpi3_value: "WhatsApp • Email",
+
+        t_services_title: "Services",
+        t_services_sub: "Choisissez ce dont vous avez besoin, on vous guide pas à pas.",
+
+        t_usdt_title: "Assistance échange USDT",
+        t_usdt_list: "<li>Achat USDT (paiement via moyens acceptés; livraison sur Binance ou wallet)</li><li>Vente USDT (transfert USDT; paiement via banque / NatCash / MonCash)</li><li>Trust Wallet : <b>USDT TRC20</b></li>",
+        btn_buy: "Acheter USDT",
+        btn_sell: "Vendre USDT",
+
+        t_transfer_title: "Transfert d’argent & facilitation",
+        t_transfer_list: "<li>Services NatCash / MonCash (transferts sans USDT possibles)</li><li>Transferts bancaires locaux (Banco Popular)</li><li>Coordination internationale (selon le cas)</li>",
+        btn_transfer: "Transfert d’argent",
+        btn_support: "Contacter",
+
+        t_methods_title: "Moyens de paiement",
+        t_methods_sub: "Disponibilité selon région et montant.",
+        t_badge_paypal: "PayPal (USD)",
+        t_badge_zelle: "Zelle",
+        t_badge_bank: "Banco Popular (RD$ / USD)",
+        t_badge_moncash: "MonCash (HTG)",
+        t_badge_natcash: "NatCash (HTG)",
+        t_badge_binance: "Binance (USDT)",
+        t_methods_note: "Nous confirmons moyen, montant et devise avant transfert. Gardez les reçus/captures.",
+
+        t_how_title: "Comment ça marche",
+        t_how_sub: "Process simple et transparent.",
+        t_step1_title: "1) Envoyez les détails",
+        t_step1_body: "Montant, devise (USD/RD$/HTG) et moyen de paiement sur WhatsApp.",
+        t_step2_title: "2) Confirmation",
+        t_step2_body: "Nous confirmons le taux, les frais (si applicable) et les infos nécessaires.",
+        t_step3_title: "3) Finalisation",
+        t_step3_body: "Livraison/paiement effectué puis confirmation.",
+        t_how_notice: "Pour les taux du jour, envoyez <b>0</b> sur WhatsApp.",
+
+        t_rates_title: "Taux du jour",
+        t_rates_sub: "Recevez les taux achat/vente rapidement.",
+        t_rates_body: "Les taux dépendent de la <b>devise</b> (USD/RD$/HTG), du <b>montant</b> et du <b>moyen</b>. Envoyez <b>0</b> pour aller plus vite.",
+        btn_rates_send0: "Demander les taux (envoyer « 0 »)",
+        btn_rates_template: "Modèle de message",
+
+        t_faq_title: "FAQ",
+        t_faq_sub: "Réponses rapides aux questions fréquentes.",
+        t_faq1_q: "Faut-il un compte Binance ?",
+        t_faq1_a: "Pour l’USDT, Binance peut faciliter les transferts. Si vous l’avez, nous pouvons demander votre email Binance.",
+        t_faq2_q: "Quel réseau USDT supportez-vous ?",
+        t_faq2_a: "Pour Trust Wallet et wallets similaires : <b>USDT TRC20</b>. Confirmez toujours le réseau avant d’envoyer.",
+        t_faq3_q: "NatCash / MonCash sans USDT ?",
+        t_faq3_a: "Oui. NatCash/MonCash peut être utilisé pour des transferts sans USDT.",
+        t_faq4_q: "Combien de temps ?",
+        t_faq4_a: "Cela dépend du moyen, du montant et des délais réseau/banque. Nous confirmons avant l’envoi.",
+
+        t_contact_title: "Contact",
+        t_contact_sub: "Nous répondons dès que possible.",
+        t_contact_whatsapp_title: "WhatsApp",
+        t_contact_whatsapp_body: "Canal le plus rapide.",
+        btn_chat_now: "Écrire maintenant",
+        t_contact_phone: "Téléphone : +1 (829) 305-5968",
+        t_contact_email_title: "Email",
+        t_contact_email_body: "Pour demandes business et documentation.",
+        t_contact_email_note: "Le délai peut varier selon l’affluence.",
+
+        t_footer: "<b>Notice :</b> Services selon disponibilité et exigences régionales. Confirmez toujours montant, devise, réseau (si applicable) et moyen avant d’envoyer."
+      },
+
+      es: {
+        t_brand: "Sam Multiple Services",
+        t_tagline: "Pagos digitales y soluciones de cambio",
+        t_lang_label: "Idioma",
+
+        t_nav_services: "Servicios",
+        t_nav_methods: "Métodos de pago",
+        t_nav_how: "Cómo funciona",
+        t_nav_rates: "Tasas",
+        t_nav_faq: "FAQ",
+        t_nav_contact: "Contacto",
+
+        btn_whatsapp_top: "WhatsApp",
+        btn_start_chat: "Iniciar WhatsApp",
+        btn_view_services: "Ver servicios",
+        btn_rates0: "Enviar “0” para tasas",
+
+        t_h1: "Pagos digitales, transferencias y soporte de cambio — para RD, Haití e internacional.",
+        t_sub: "Soportamos <b>USD ($)</b>, <b>RD$ (DOP)</b> y <b>HTG</b>. Servicio por WhatsApp, pasos claros y coordinación rápida.",
+        t_pill_1: "USD • RD$ • HTG",
+        t_pill_2: "USDT (TRC20 soportado)",
+        t_pill_3: "PayPal • Zelle • Banco • NatCash • MonCash",
+        t_tip: "Consejo: Para atención más rápida, envía <b>monto</b>, <b>moneda</b> (USD / RD$ / HTG) y <b>método de pago</b>.",
+
+        t_quick_title: "Contacto rápido",
+        t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Email: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_whatsapp_label: "Servicio por WhatsApp",
+        t_whatsapp_value: "Respuestas rápidas y pasos claros",
+        t_whatsapp_note: "Confirmamos los detalles antes de cualquier envío.",
+        t_disclaimer_small: "Mostramos marcas como métodos aceptados. No reclamamos afiliación oficial.",
+
+        t_kpi1_label: "Cobertura",
+        t_kpi1_value: "República Dominicana • Haití • Internacional",
+        t_kpi2_label: "Monedas",
+        t_kpi2_value: "USD ($) • RD$ (DOP) • HTG",
+        t_kpi3_label: "Soporte",
+        t_kpi3_value: "WhatsApp • Email",
+
+        t_services_title: "Servicios",
+        t_services_sub: "Elige lo que necesitas y te guiamos paso a paso.",
+
+        t_usdt_title: "Soporte de intercambio USDT",
+        t_usdt_list: "<li>Comprar USDT (pagas por métodos aceptados; entregamos a Binance o wallet)</li><li>Vender USDT (envías USDT; pagamos por banco / NatCash / MonCash)</li><li>Trust Wallet: <b>USDT TRC20</b></li>",
+        btn_buy: "Comprar USDT",
+        btn_sell: "Vender USDT",
+
+        t_transfer_title: "Transferencias y facilitación",
+        t_transfer_list: "<li>NatCash / MonCash (transferencias sin USDT disponibles)</li><li>Transferencias bancarias locales (Banco Popular)</li><li>Coordinación internacional (según el caso)</li>",
+        btn_transfer: "Transferencia",
+        btn_support: "Contactar",
+
+        t_methods_title: "Métodos de pago",
+        t_methods_sub: "Disponibilidad según región y monto.",
+        t_badge_paypal: "PayPal (USD)",
+        t_badge_zelle: "Zelle",
+        t_badge_bank: "Banco Popular (RD$ / USD)",
+        t_badge_moncash: "MonCash (HTG)",
+        t_badge_natcash: "NatCash (HTG)",
+        t_badge_binance: "Binance (USDT)",
+        t_methods_note: "Confirmamos método, monto y moneda antes de enviar. Guarda comprobantes/capturas.",
+
+        t_how_title: "Cómo funciona",
+        t_how_sub: "Proceso simple y transparente.",
+        t_step1_title: "1) Envía detalles",
+        t_step1_body: "Monto, moneda (USD/RD$/HTG) y método por WhatsApp.",
+        t_step2_title: "2) Confirmación",
+        t_step2_body: "Confirmamos tasa, comisiones (si aplica) e información requerida.",
+        t_step3_title: "3) Finalizar",
+        t_step3_body: "Realizamos entrega/pago y confirmamos al finalizar.",
+        t_how_notice: "Para tasas del día, envía <b>0</b> por WhatsApp.",
+
+        t_rates_title: "Tasas diarias",
+        t_rates_sub: "Recibe tasas de compra/venta al instante.",
+        t_rates_body: "Las tasas dependen de <b>moneda</b> (USD/RD$/HTG), <b>monto</b> y <b>método</b>. Envía <b>0</b> para respuesta rápida.",
+        btn_rates_send0: "Pedir tasas (enviar “0”)",
+        btn_rates_template: "Plantilla de mensaje",
+
+        t_faq_title: "FAQ",
+        t_faq_sub: "Respuestas rápidas a preguntas comunes.",
+        t_faq1_q: "¿Necesito Binance?",
+        t_faq1_a: "Para USDT, Binance puede facilitar transferencias. Si lo tienes, podemos pedir tu email de Binance.",
+        t_faq2_q: "¿Qué red USDT soportan?",
+        t_faq2_a: "Para Trust Wallet y similares: <b>USDT TRC20</b>. Confirma siempre la red antes de enviar.",
+        t_faq3_q: "¿NatCash / MonCash sin USDT?",
+        t_faq3_a: "Sí. Se puede usar para transferencias sin USDT.",
+        t_faq4_q: "¿Cuánto tarda?",
+        t_faq4_a: "Depende del método, monto y tiempos de red/banco. Confirmamos antes de enviar.",
+
+        t_contact_title: "Contacto",
+        t_contact_sub: "Respondemos lo antes posible.",
+        t_contact_whatsapp_title: "WhatsApp",
+        t_contact_whatsapp_body: "Canal más rápido.",
+        btn_chat_now: "Chatear ahora",
+        t_contact_phone: "Teléfono: +1 (829) 305-5968",
+        t_contact_email_title: "Email",
+        t_contact_email_body: "Para consultas y documentación.",
+        t_contact_email_note: "El tiempo de respuesta puede variar.",
+
+        t_footer: "<b>Aviso:</b> Servicios sujetos a disponibilidad y requisitos regionales. Confirma monto, moneda, red (si aplica) y método antes de enviar."
+      },
+
+      ht: {
+        t_brand: "Sam Multiple Services",
+        t_tagline: "Pèman dijital & solisyon echanj",
+        t_lang_label: "Lang",
+
+        t_nav_services: "Sèvis",
+        t_nav_methods: "Mwayen Peman",
+        t_nav_how: "Kijan li mache",
+        t_nav_rates: "To jounen an",
+        t_nav_faq: "FAQ",
+        t_nav_contact: "Kontak",
+
+        btn_whatsapp_top: "WhatsApp",
+        btn_start_chat: "Kòmanse WhatsApp",
+        btn_view_services: "Gade sèvis yo",
+        btn_rates0: "Voye “0” pou to yo",
+
+        t_h1: "Pèman dijital, transfè lajan, ak sipò echanj — pou RD, Ayiti, ak entènasyonal.",
+        t_sub: "Nou sipòte <b>USD ($)</b>, <b>RD$ (DOP)</b>, ak <b>HTG</b>. Sèvis sou WhatsApp, etap klè, sèvis rapid.",
+        t_pill_1: "USD • RD$ • HTG",
+        t_pill_2: "USDT (TRC20 sipòte)",
+        t_pill_3: "PayPal • Zelle • Bank • NatCash • MonCash",
+        t_tip: "Konsèy: Pou pi vit, voye <b>montan</b>, <b>lajan</b> (USD / RD$ / HTG) ak <b>mwayen peman</b>.",
+
+        t_quick_title: "Kontak rapid",
+        t_quick_body: 'WhatsApp: <a href="https://wa.me/18293055968" target="_blank" rel="noopener">+1 (829) 305-5968</a><br/>Imèl: <a href="mailto:sammultipleservices@gmail.com">sammultipleservices@gmail.com</a>',
+        t_whatsapp_label: "Sèvis sou WhatsApp",
+        t_whatsapp_value: "Repons rapid & etap klè",
+        t_whatsapp_note: "Nou konfime detay yo anvan nenpòt transfè.",
+        t_disclaimer_small: "Nou site non metòd peman yo kòm opsyon. Nou pa reklame afilyasyon ofisyèl.",
+
+        t_kpi1_label: "Zòn",
+        t_kpi1_value: "Repiblik Dominikèn • Ayiti • Entènasyonal",
+        t_kpi2_label: "Lajan",
+        t_kpi2_value: "USD ($) • RD$ (DOP) • HTG",
+        t_kpi3_label: "Sipò",
+        t_kpi3_value: "WhatsApp • Imèl",
+
+        t_services_title: "Sèvis",
+        t_services_sub: "Chwazi sa ou bezwen, n ap gide w etap pa etap.",
+
+        t_usdt_title: "Sipò USDT",
+        t_usdt_list: "<li>Achte USDT (ou peye ak metòd yo; nou voye sou Binance oswa wallet)</li><li>Vann USDT (ou voye USDT; nou peye via bank / NatCash / MonCash)</li><li>Trust Wallet: <b>USDT TRC20</b></li>",
+        btn_buy: "Achte USDT",
+        btn_sell: "Vann USDT",
+
+        t_transfer_title: "Transfè lajan & fasilitasyon",
+        t_transfer_list: "<li>NatCash / MonCash (transfè san USDT posib)</li><li>Transfè bank lokal (Banco Popular)</li><li>Kòdinasyon entènasyonal (selon ka a)</li>",
+        btn_transfer: "Transfè lajan",
+        btn_support: "Kontakte",
+
+        t_methods_title: "Mwayen peman",
+        t_methods_sub: "Disponibilite depann de zòn ak montan.",
+        t_badge_paypal: "PayPal (USD)",
+        t_badge_zelle: "Zelle",
+        t_badge_bank: "Banco Popular (RD$ / USD)",
+        t_badge_moncash: "MonCash (HTG)",
+        t_badge_natcash: "NatCash (HTG)",
+        t_badge_binance: "Binance (USDT)",
+        t_methods_note: "Nou konfime metòd, montan, ak lajan anvan ou voye. Kenbe resi/capture.",
+
+        t_how_title: "Kijan li mache",
+        t_how_sub: "Yon pwosesis senp ak klè.",
+        t_step1_title: "1) Voye detay",
+        t_step1_body: "Voye montan, lajan (USD/RD$/HTG), ak metòd sou WhatsApp.",
+        t_step2_title: "2) Konfimasyon",
+        t_step2_body: "Nou konfime to, frè (si genyen), ak enfòmasyon nesesè.",
+        t_step3_title: "3) Fini",
+        t_step3_body: "Nou fè livrezon/peman epi nou konfime lè fini.",
+        t_how_notice: "Pou to jounen an, voye <b>0</b> sou WhatsApp.",
+
+        t_rates_title: "To jounen an",
+        t_rates_sub: "Jwenn to achte/vann rapid.",
+        t_rates_body: "To yo depann de <b>lajan</b> (USD/RD$/HTG), <b>montan</b>, ak <b>metòd</b>. Voye <b>0</b> pou pi vit.",
+        btn_rates_send0: "Mande to yo (voye “0”)",
+        btn_rates_template: "Modèl mesaj",
+
+        t_faq_title: "FAQ",
+        t_faq_sub: "Repons rapid pou kestyon yo.",
+        t_faq1_q: "Èske m bezwen Binance?",
+        t_faq1_a: "Pou USDT, Binance ka fasilite transfè. Si ou genyen li, nou ka mande imèl Binance ou.",
+        t_faq2_q: "Ki rezo USDT nou sipòte?",
+        t_faq2_a: "Pou Trust Wallet ak lòt wallet: <b>USDT TRC20</b>. Toujou konfime rezo a anvan ou voye.",
+        t_faq3_q: "NatCash / MonCash san USDT?",
+        t_faq3_a: "Wi. Ou ka itilize yo pou transfè san USDT tou.",
+        t_faq4_q: "Konbyen tan sa pran?",
+        t_faq4_a: "Sa depann de metòd, montan, ak delè rezo/bank. Nou konfime anvan ou voye.",
+
+        t_contact_title: "Kontak",
+        t_contact_sub: "Nou reponn pi vit posib.",
+        t_contact_whatsapp_title: "WhatsApp",
+        t_contact_whatsapp_body: "Pi rapid chanèl la.",
+        btn_chat_now: "Ekri kounye a",
+        t_contact_phone: "Telefòn: +1 (829) 305-5968",
+        t_contact_email_title: "Imèl",
+        t_contact_email_body: "Pou kestyon biznis ak dokiman.",
+        t_contact_email_note: "Tan repons lan ka varye.",
+
+        t_footer: "<b>Nòt:</b> Sèvis yo depann de disponibilite ak règ lokal. Toujou konfime montan, lajan, rezo (si sa aplikab) ak metòd anvan ou voye."
+      }
     };
 
-    // Helpers
-    function waLink(message){
-      return `${WA_BASE}?text=${encodeURIComponent(message)}`;
+    const htmlFields = new Set([
+      "t_sub","t_tip","t_quick_body","t_usdt_list","t_transfer_list","t_rates_body","t_how_notice",
+      "t_faq1_a","t_faq2_a","t_footer"
+    ]);
+
+    function applyLang(lang){
+      const dict = TEXT[lang] || TEXT.en;
+      for (const id in dict){
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (htmlFields.has(id)) el.innerHTML = dict[id];
+        else el.textContent = dict[id];
+      }
+      document.documentElement.lang = lang === "ht" ? "ht" : lang;
     }
 
-    // =========================
-    // Prefilled WhatsApp messages
-    // =========================
-    const MSG_GENERAL =
-`Hello Sam Multiple Services 👋
-Please help me with:
-1) Buy USDT
-2) Sell USDT
-3) Send/Receive money (NatCash / MonCash / Bank / Zelle / PayPal)
-0) Today’s rates
-
-My amount:
-Currency (RD$ / USD / HTG):
-Payment method:
-Country/Location:`;
-
-    const MSG_BUY_USDT =
-`Hello Sam Multiple Services 👋
-✅ I want to BUY USDT.
-
-Amount to buy:
-Currency I will pay with (RD$ / USD / HTG):
-Payment method (PayPal / Zelle / Bank / MonCash / NatCash):
-
-Do you have a BINANCE account? (Yes/No)
-If YES: Binance email:
-If NO: Wallet type (Trust Wallet / other) + USDT network (TRC20 preferred)
-
-Thank you.`;
-
-    const MSG_SELL_USDT =
-`Hello Sam Multiple Services 👋
-✅ I want to SELL USDT.
-
-Amount to sell (USDT):
-Where are you sending from? (Binance / Trust Wallet / other):
-USDT network (TRC20 if Trust Wallet):
-
-How do you want to receive the money back?
-(Bank / NatCash / MonCash)
-
-Country/Location:
-Thank you.`;
-
-    const MSG_NATCASH =
-`Hello Sam Multiple Services 👋
-✅ I want to SEND/RECEIVE via NatCash.
-
-Amount:
-Currency (HTG / USD / RD$):
-NatCash details (name + number):
-Direction (Send or Receive):
-Thank you.`;
-
-    const MSG_MONCASH =
-`Hello Sam Multiple Services 👋
-✅ I want to SEND/RECEIVE via MonCash.
-
-Amount:
-Currency (HTG / USD / RD$):
-MonCash details (name + number):
-Direction (Send or Receive):
-Thank you.`;
-
-    const MSG_BANK =
-`Hello Sam Multiple Services 👋
-✅ I want to use BANK TRANSFER (Banco Popular).
-
-Amount:
-Currency (RD$ / USD):
-Direction (Send or Receive):
-Thank you.`;
-
-    const MSG_ZELLE =
-`Hello Sam Multiple Services 👋
-✅ I want to use ZELLE.
-
-Amount:
-Currency (USD):
-Direction (Send or Receive):
-Thank you.`;
-
-    const MSG_RATES = "0";
-
-    const MSG_QUOTE =
-`Hello Sam Multiple Services 👋
-Please send me a QUOTE.
-
-Service (Buy USDT / Sell USDT / NatCash / MonCash / Bank / Zelle):
-Amount:
-Currency (RD$ / USD / HTG):
-Payment method:
-Binance email (if USDT & you have Binance):
-Location:
-Thank you.`;
-
-    // =========================
-    // Wire all links
-    // =========================
-    function setHref(id, href){
-      const el = document.getElementById(id);
-      if(el) el.href = href;
-    }
-
-    // Top / hero / contact
-    setHref("waTop", waLink(MSG_GENERAL));
-    setHref("waHero", waLink(MSG_GENERAL));
-    setHref("waContact", waLink(MSG_GENERAL));
-    setHref("waPhoneLink", `${WA_BASE}`);
-
-    // Buttons (hero)
-    setHref("btnBuyUsdt", waLink(MSG_BUY_USDT));
-    setHref("btnSellUsdt", waLink(MSG_SELL_USDT));
-    setHref("btnNatCash", waLink(MSG_NATCASH));
-    setHref("btnMonCash", waLink(MSG_MONCASH));
-    setHref("btnBank", waLink(MSG_BANK));
-    setHref("btnZelle", waLink(MSG_ZELLE));
-    setHref("btnRates", waLink(MSG_RATES));
-
-    // Buttons (services section duplicates)
-    setHref("btnBuyUsdt2", waLink(MSG_BUY_USDT));
-    setHref("btnSellUsdt2", waLink(MSG_SELL_USDT));
-    setHref("btnNatCash2", waLink(MSG_NATCASH));
-    setHref("btnMonCash2", waLink(MSG_MONCASH));
-    setHref("btnBank2", waLink(MSG_BANK));
-
-    // Rates actions
-    setHref("btnRates2", waLink(MSG_RATES));
-    setHref("btnQuote", waLink(MSG_QUOTE));
-
-    // =========================
-    // Render optional rates
-    // =========================
-    document.getElementById("lastUpdated").textContent = RATES.lastUpdated;
-    document.getElementById("rateUsdtBuy").textContent = RATES.usdtBuy;
-    document.getElementById("rateUsdtSell").textContent = RATES.usdtSell;
-    document.getElementById("rateUsdToRd").textContent = RATES.usdToRd;
-    document.getElementById("rateRdToUsd").textContent = RATES.rdToUsd;
-    document.getElementById("rateHtgToUsd").textContent = RATES.htgToUsd;
-    document.getElementById("rateUsdToHtg").textContent = RATES.usdToHtg;
+    const sel = document.getElementById("langSel");
+    sel.addEventListener("change", () => applyLang(sel.value));
+    applyLang("en");
   </script>
 </body>
 </html>
