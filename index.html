@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sam Multiple Services — Digital Payments & Exchange Solutions</title>
-  <meta name="description" content="Sam Multiple Services provides secure digital payment facilitation and USDT exchange solutions supporting RD$, USD ($), and HTG. PayPal, Zelle, Banco Popular, MonCash, NatCash." />
+  <meta name="description" content="Sam Multiple Services provides secure digital payment facilitation and exchange solutions supporting RD$, USD ($), and HTG. PayPal, Zelle, Banco Popular, MonCash, NatCash." />
   <style>
     :root{
       --bg:#071226;
@@ -123,13 +123,17 @@
       font-size:.92rem;
     }
     .small{font-size:.92rem}
-    .qr{
+
+    /* Real QR image styling */
+    .qrimg{
       width:140px;height:140px;border-radius:18px;
-      border:1px dashed rgba(255,255,255,.25);
-      display:grid;place-items:center;color:rgba(255,255,255,.65);
+      border:1px solid rgba(255,255,255,.20);
       background:rgba(255,255,255,.04);
+      object-fit:cover;
+      display:block;
       margin-top:12px;
     }
+
     .notice{
       border:1px solid rgba(215,179,92,.35);
       background:rgba(215,179,92,.10);
@@ -201,16 +205,14 @@
           </p>
 
           <div class="kpi">
-            <div class="label">Primary PayPal (payments)</div>
-            <div class="value">sammultipleservices@gmail.com</div>
-            <div class="muted small">Shared after confirmation inside chat.</div>
+            <div class="label">Payment details</div>
+            <div class="value">Shared securely in chat</div>
+            <div class="muted small">We confirm the amount, currency, and method before you send funds.</div>
           </div>
 
-          <div class="qr" title="Replace with your real WhatsApp QR">
-            Your WhatsApp QR
-          </div>
+          <img class="qrimg" src="whatsapp-qr.png" alt="Scan to chat on WhatsApp" />
           <p class="muted small" style="margin:10px 0 0">
-            Replace the QR placeholder with your real WhatsApp Business QR image when you’re ready.
+            Scan the QR to start a WhatsApp chat with Sam Multiple Services.
           </p>
         </div>
       </div>
@@ -331,4 +333,3 @@
   </div>
 </body>
 </html>
-
